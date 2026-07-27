@@ -47,8 +47,11 @@
     const paint = (list) => {
       box.innerHTML = list.map((n) => {
         const flag = n.sample ? '<span class="sample-flag">示例占位</span>' : '';
+        const linkOpen = n.url ? `<a href="${esc(n.url)}" target="_blank" rel="noopener nofollow" style="text-decoration:none;color:inherit;display:contents;">` : '';
+        const linkClose = n.url ? '</a>' : '';
         return `
           <div class="feed-item">
+            ${linkOpen}
             <div class="feed-thumb ${n.color}">${esc(n.tag)}</div>
             <div class="feed-main">
               <div class="tt">${flag}${esc(n.title)}</div>
@@ -56,6 +59,7 @@
               <div class="meta"><span class="badge badge-blue">${esc(n.tag)}</span><span>${esc(n.src)}</span><span>${esc(n.date)}</span></div>
             </div>
             <div class="feed-side">→</div>
+            ${linkClose}
           </div>`;
       }).join('');
       const empty = $('#newsEmpty');

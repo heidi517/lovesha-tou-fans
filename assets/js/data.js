@@ -27,6 +27,7 @@ const PLAYERS = {
       { k: '招牌', v: '正手爆冲', sub: '小魔王' },
     ],
     honors: [
+      { yr: '2026', ev: 'WTT美国大满贯 女单', mk: 'GOLD' },
       { yr: '2024', ev: '奥运会 混双 & 团体', mk: 'GOLD' },
       { yr: '2024', ev: '奥运会 女单', mk: 'SILVER' },
       { yr: '2021', ev: '奥运会 团体', mk: 'GOLD' },
@@ -50,9 +51,10 @@ const PLAYERS = {
       { k: '世界排名', v: '男单前列', sub: '长期稳居' },
       { k: '打法', v: '左手横板', sub: '两面反胶' },
       { k: '籍贯', v: '吉林', sub: '东北' },
-      { k: '招牌', v: '正手抢冲', sub: '大头' },
+      { k: '身份', v: '男队队长', sub: '2026年起' },
     ],
     honors: [
+      { yr: '2026', ev: '国乒男队队长', mk: 'CAPTAIN' },
       { yr: '2024', ev: '奥运会 混双 & 团体', mk: 'GOLD' },
       { yr: '2024', ev: '奥运会 男单', mk: '参赛' },
       { yr: '多次', ev: '世乒赛 男双/混双', mk: '冠军' },
@@ -65,31 +67,34 @@ const PLAYERS = {
   },
 };
 
-/* ---------- 首页：最新动态（示例） ---------- */
+/* ---------- 首页：最新动态 ---------- */
 const UPDATES = [
-  { date: '示例日期', player: 'sun', tag: '动态', title: '【示例】孙颖莎近期训练动态', excerpt: '此处为占位内容：介绍选手近期训练/备赛情况。上线前替换为真实动态并注明来源。', src: '待替换', sample: true },
-  { date: '示例日期', player: 'wang', tag: '动态', title: '【示例】王楚钦近期赛事安排', excerpt: '此处为占位内容：介绍选手近期赛事与状态。上线前替换为真实信息并注明来源。', src: '待替换', sample: true },
-  { date: '示例日期', player: 'both', tag: '混双', title: '【示例】莎头组合·混双前瞻', excerpt: '此处为占位内容：混双组合备战或看点分析。上线前替换为真实报道并注明来源。', src: '待替换', sample: true },
+  { date: '2026-07-23', player: 'both', tag: '乒超', title: '2026乒超联赛大连开赛：孙颖莎、王楚钦双双出战', excerpt: '新赛季乒超联赛今日在辽宁大连开赛。王楚钦代表山东魏桥首战对阵山东鲁能，孙颖莎留守深圳大学首秀对阵成都高新。联赛实行新赛制，每队须有U19球员在前三盘登场。', src: '中国乒协', url: 'https://www.ctta.cn/' },
+  { date: '2026-07-20', player: 'both', tag: '全锦赛', title: '全锦赛双打落幕：马龙/许昕男双夺冠，莎头组合混双止步半决赛', excerpt: '2026年全国乒乓球锦标赛双打比赛在长沙收官。王楚钦/孙颖莎作为头号种子搭档混双，半决赛2-3不敌袁励岑/王艺迪。马龙/许昕时隔六年再度联手，3-0横扫夺得男双冠军。', src: '新华社 / 中国乒协', url: 'https://www.ctta.cn/xwzx/ppxw/2026/0720/702758.html' },
+  { date: '2026-07-06', player: 'sun', tag: '大满贯', title: '孙颖莎美国大满贯七局苦战夺冠，第六座大满贯入账', excerpt: 'WTT美国大满贯女单决赛，孙颖莎与蒯曼鏖战七局，在第六局浪费三个赛点后决胜局11-4锁定胜局。这是她本赛季第二座大满贯冠军，职业生涯第六座。', src: 'Olympics.com', url: 'https://www.olympics.com/zh/news/2026-us-smash-sun-yingsha-edges-kuaiman-seven-game-thriller-clinch-title-china-three-crowns' },
 ];
 
-/* ---------- 资讯流（示例） ---------- */
+/* ---------- 资讯流 ---------- */
 const NEWS = [
-  { cat: 'domestic', tag: '国内', color: 't-red', title: '【示例】国乒备战最新赛事', excerpt: '占位内容：国内乒乓球队集训、出征等报道。上线前替换真实资讯并注明出处。', src: '央视体育/新华社等', date: '示例日期', sample: true },
-  { cat: 'international', tag: '国际', color: 't-blue', title: '【示例】WTT 系列赛赛程看点', excerpt: '占位内容：国际赛事日程与看点。上线前替换真实资讯并注明出处。', src: 'WTT 官网/ITTF', date: '示例日期', sample: true },
-  { cat: 'domestic', tag: '国内', color: 't-gold', title: '【示例】乒超联赛动态', excerpt: '占位内容：俱乐部乒超赛事报道。上线前替换真实资讯并注明出处。', src: '中国乒协/央视体育', date: '示例日期', sample: true },
-  { cat: 'international', tag: '国际', color: 't-dark', title: '【示例】世乒赛/世界杯综述', excerpt: '占位内容：国际大赛综述与分析。上线前替换真实资讯并注明出处。', src: 'ITTF/WTT 官网', date: '示例日期', sample: true },
-  { cat: 'domestic', tag: '国内', color: 't-green', title: '【示例】全锦赛/全运会资讯', excerpt: '占位内容：国内综合赛事资讯。上线前替换真实资讯并注明出处。', src: '中国乒协', date: '示例日期', sample: true },
-  { cat: 'international', tag: '国际', color: 't-plum', title: '【示例】国际排名与积分变化', excerpt: '占位内容：世界排名变化解读。上线前替换真实资讯并注明出处。', src: 'ITTF 官网', date: '示例日期', sample: true },
+  { cat: 'international', tag: '国际', color: 't-red', title: 'WTT美国大满贯：孙颖莎七局力克蒯曼夺冠，国乒3冠3亚收官', excerpt: '7月6日，2026年WTT美国大满贯赛在洛杉矶收官。孙颖莎女单决赛4-3险胜蒯曼，斩获个人第六座大满贯冠军。中国队包揽女单、男双、女双三项冠军，王楚钦/孙颖莎混双摘银。', src: 'Olympics.com / WTT 官网', date: '2026-07-06', url: 'https://www.olympics.com/zh/news/2026-us-smash-sun-yingsha-edges-kuaiman-seven-game-thriller-clinch-title-china-three-crowns' },
+  { cat: 'domestic', tag: '国内', color: 't-blue', title: '全锦赛双打落幕：马龙/许昕时隔六年再夺冠，蒯曼兼项双冠', excerpt: '7月19日，2026年全国乒乓球锦标赛双打比赛在长沙收官。马龙/许昕3-0横扫新生代组合夺得男双冠军；林诗栋/蒯曼混双登顶；蒯曼/覃予萱女双摘金。全锦赛团体和单打将于12月16日在福州进行。', src: '新华社 / 中国乒协', date: '2026-07-20', url: 'https://www.ctta.cn/xwzx/ppxw/2026/0720/702758.html' },
+  { cat: 'domestic', tag: '国内', color: 't-gold', title: '2026乒超联赛名单公布：孙颖莎王楚钦领衔，7月23日大连开赛', excerpt: '中国乒协公示2026赛季乒超联赛注册名单。王楚钦继续代表山东魏桥·向尚运动出战，孙颖莎留守深圳大学。联赛实行新赛制：每队须有U19球员在前三盘登场。常规赛7月23日大连、7月29日雄安两站。', src: '中国乒协 / 央视体育', date: '2026-07-23', url: 'https://www.ctta.cn/' },
+  { cat: 'international', tag: '国际', color: 't-dark', title: 'WTT美国大满贯：国乒男单无缘八强，王楚钦止步第三轮', excerpt: '本届美国大满贯男单赛场，王楚钦第三轮不敌丹麦选手林德，林诗栋同样在该轮出局，国乒男单创大满贯赛最差战绩。日本小将松岛辉空最终夺得男单冠军，成为日本乒坛首位大满贯男单冠军。', src: 'WTT 官网 / 环球时报', date: '2026-07-06', url: 'https://c.m.163.com/news/a/L17FD6HU0514R9OJ.html' },
+  { cat: 'domestic', tag: '国内', color: 't-green', title: '乒超新赛季大变革：外援全清+U19新规，王楚钦首战对鲁能', excerpt: '本届乒超取消所有外协会选手报名，每队强制注册U19球员且前三盘必须登场。揭幕战7月23日上午山东魏桥对阵山东鲁能，王楚钦、梁靖崑领衔出战。孙颖莎深圳大学当晚首秀对阵成都高新。', src: '中国乒协 / 搜狐体育', date: '2026-07-23', url: 'https://new.qq.com/rain/a/20260723A03PWG00' },
+  { cat: 'domestic', tag: '国内', color: 't-plum', title: '全锦赛双打：王楚钦/孙颖莎混双止步半决赛，马龙/许昕老将合体', excerpt: '本届全锦赛首次将双打单独设为一站，打破省区市组队限制。王楚钦/孙颖莎作为头号种子搭档混双，半决赛2-3不敌袁励岑/王艺迪。马龙/许昕时隔六年再度联手出战男双。', src: '央视体育 / 新华社', date: '2026-07-14', url: 'https://ysxw.cctv.cn/article.html?item_id=11812953281190128643' },
 ];
 
-/* ---------- 比赛视频（示例 · 统一官方源） ---------- */
+/* ---------- 比赛视频 · 统一官方源 ---------- */
 const VIDEOS = [
-  { src: '央视体育', color: 't-red', title: '【示例】国乒赛事精彩集锦', meta: '官方集锦 · 正版', url: 'https://sports.cctv.com/', sample: true },
-  { src: '咪咕视频', color: 't-blue', title: '【示例】乒乓赛事直播回放', meta: '官方直播 · 正版', url: 'https://www.miguvideo.com/', sample: true },
-  { src: 'WTT 官网', color: 't-gold', title: '【示例】WTT 赛事回放与集锦', meta: 'WTT World · 正版', url: 'https://worldtabletennis.com/', sample: true },
-  { src: 'ITTF 官网', color: 't-dark', title: '【示例】国际乒联赛事档案', meta: 'ITTF · 正版', url: 'https://www.ittf.com/', sample: true },
-  { src: '中国乒协', color: 't-green', title: '【示例】国内赛事官方报道', meta: '中国乒协 · 正版', url: 'https://www.ctta.cn/', sample: true },
-  { src: '央视体育', color: 't-plum', title: '【示例】专题报道与人物', meta: '央视体育 · 正版', url: 'https://sports.cctv.com/', sample: true },
+  { src: '央视体育', color: 't-red', title: 'WTT美国大满贯：孙颖莎女单夺冠集锦', meta: '央视体育 · 官方集锦', url: 'https://sports.cctv.com/', sample: true },
+  { src: '咪咕视频', color: 't-blue', title: '乒乓赛事直播回放', meta: '官方直播 · 正版', url: 'https://www.miguvideo.com/', sample: true },
+  { src: 'WTT 官网', color: 't-gold', title: 'WTT 赛事回放与集锦', meta: 'WTT World · 正版', url: 'https://worldtabletennis.com/', sample: true },
+  { src: 'ITTF 官网', color: 't-dark', title: '国际乒联赛事档案', meta: 'ITTF · 正版', url: 'https://www.ittf.com/', sample: true },
+  { src: '中国乒协', color: 't-green', title: '国内赛事官方报道', meta: '中国乒协 · 正版', url: 'https://www.ctta.cn/', sample: true },
+  /* 专题报道与人物 —— 央视《体坛零距离》系列 */
+  { src: '央视·体坛零距离', color: 't-plum', title: '孙颖莎：全力以赴 继续追梦', meta: '2025-05-29 · 最好的自己', url: 'https://tv.cctv.com/2025/05/29/VIDE4IcWrlw4Qy9aTMUM6rT5250529.shtml' },
+  { src: '央视·体坛零距离', color: 't-plum', title: '王楚钦：男队被质疑，我要站出来', meta: '2026-04-30 · 出征伦敦世乒赛', url: 'https://tv.cctv.cn/2026/04/30/VIDE2b7v4GoZm7aFboWjpcRM260430.shtml' },
+  { src: '央视·体坛零距离', color: 't-plum', title: '王楚钦回应出任男队队长：接好马龙的接力棒', meta: '2026-06-11 · 王皓宣布任命', url: 'https://tv.cctv.cn/' },
 ];
 
 /* ---------- 论坛分区与示例帖 ---------- */
