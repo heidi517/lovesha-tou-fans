@@ -262,6 +262,72 @@ ul,ol { list-style: none; }
 .video-title { font-size:15.5px; font-weight:700; line-height:1.4; }
 .video-meta { font-size:13px; color:var(--c-ink-mute); margin-top:6px; display:flex; gap:10px; flex-wrap:wrap; }
 
+/* ---------- 视频赛事时间线 ---------- */
+.vt-group {
+  position: relative; padding-left: 44px; margin-bottom: 32px;
+}
+.vt-group:last-child { margin-bottom: 0; }
+.vt-dot {
+  position: absolute; left: 6px; top: 14px;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: #fff; border: 3px solid var(--c-red);
+  box-shadow: 0 0 0 4px rgba(200,16,46,.15);
+  z-index: 2;
+}
+.vt-group::before {
+  content: ""; position: absolute; left: 13px; top: 32px; bottom: -32px;
+  width: 2px; background: linear-gradient(180deg, var(--c-red), var(--c-gold));
+  border-radius: 2px; z-index: 1;
+}
+.vt-group:last-child::before { display: none; }
+.vt-header {
+  background: linear-gradient(160deg, #fff, #FFF7EC);
+  border: 1px solid var(--c-line); border-radius: 14px;
+  padding: 18px 22px; margin-bottom: 16px;
+  box-shadow: 0 8px 24px rgba(31,26,23,.05);
+}
+.vt-header-top {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+}
+.vt-type {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 12px; border-radius: 999px; font-size: 12px; font-weight: 700;
+  letter-spacing: .3px;
+}
+.vt-type-gs { background: linear-gradient(135deg,#D4AF37,#9a7a1a); color: #fff; }
+.vt-type-dark { background: linear-gradient(135deg,#3a3a3a,#1a1a1a); color: var(--c-gold-light); }
+.vt-type-cup { background: linear-gradient(135deg,#2E7D5B,#1a4a35); color: #fff; }
+.vt-type-plum { background: linear-gradient(135deg,#7B2D6B,#3a142f); color: #fff; }
+.vt-type-wtt { background: linear-gradient(135deg,#2C6FB8,#143A6B); color: #fff; }
+.vt-pts {
+  display: inline-flex; align-items: center; padding: 1px 7px; border-radius: 4px;
+  background: rgba(255,255,255,.3); font-size: 10px; font-weight: 600;
+}
+.vt-date {
+  font-size: 13px; color: var(--c-ink-mute); font-weight: 600;
+}
+.vt-event-name {
+  font-family: var(--ff-display); font-size: 20px; font-weight: 800;
+  margin-top: 8px; color: var(--c-ink);
+}
+.vt-event-loc {
+  font-size: 13px; color: var(--c-ink-soft); margin-top: 4px;
+}
+.vt-event-desc {
+  font-size: 13.5px; color: var(--c-ink-mute); margin-top: 8px;
+  padding-top: 10px; border-top: 1px dashed var(--c-line);
+  line-height: 1.55;
+}
+.vt-videos {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
+}
+
+/* 响应式 */
+@media (max-width: 720px) {
+  .vt-group { padding-left: 34px; }
+  .vt-videos { grid-template-columns: 1fr; }
+}
+
 /* ---------- 论坛 ---------- */
 .forum-grid { display:grid; grid-template-columns: 240px 1fr; gap:26px; align-items:flex-start; }
 .forum-cats .cat {
@@ -572,6 +638,15 @@ ul,ol { list-style: none; }
 .ap-wang { background:#1B3A6B; }
 .ap-both { background:linear-gradient(135deg,#C8102E,#1B3A6B); }
 .archive-src { font-size:12px; color:var(--c-ink-mute); }
+.archive-vid-col { text-align: center; width: 48px; }
+.archive-vid {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; border-radius: 8px;
+  background: linear-gradient(135deg, var(--c-red), var(--c-red-deep));
+  font-size: 13px; text-decoration: none; transition: transform .15s;
+}
+.archive-vid:hover { transform: scale(1.15); }
+.archive-vid-na { color: var(--c-line); font-size: 13px; }
 .archive-note { font-size:12px; color:var(--c-ink-mute); font-style:italic; }
 .archive-disclaimer {
   background:var(--c-bg-alt); border:1px solid var(--c-line); border-radius:12px;

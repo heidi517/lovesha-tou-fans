@@ -76,23 +76,54 @@
     });
   }
 
-  /* ---------- 通用渲染：视频 ---------- */
-  function renderVideos() {
+  /* ---------- 通用渲染：视频（赛事分组时间线） ---------- */
+  function renderVideoTimeline(groups) {
     const box = $('[data-render="videos"]');
     if (!box) return;
-    box.innerHTML = VIDEOS.map((v) => {
-      const flag = v.sample ? '<span class="sample-flag">示例</span>' : '';
+    const data = groups || (typeof VIDEOS_TIMELINE !== 'undefined' ? VIDEOS_TIMELINE : []);
+    if (!data.length) { box.innerHTML = '<p class="center muted">暂无视频</p>'; return; }
+
+    const typeClass = (t) => {
+      const m = { '大满贯': 'vt-type-gs', '世乒赛': 'vt-type-dark', '世界杯': 'vt-type-cup', '洲际杯': 'vt-type-plum', '联赛': 'vt-type-wtt' };
+      return m[t] || 'vt-type-wtt';
+    };
+    const typeIcon = (t) => {
+      const m = { '大满贯': '🏆', '世乒赛': '🌍', '世界杯': '🏅', '洲际杯': '🏟️', '联赛': '🏓' };
+      return m[t] || '🏓';
+    };
+
+    box.innerHTML = data.map(g => {
+      const videosHtml = g.videos.map(v => {
+        const flag = v.sample ? '<span class="sample-flag">示例</span>' : '';
+        return `
+          <a class="video-card" href="${esc(v.url)}" target="_blank" rel="noopener nofollow">
+            <div class="video-thumb ${v.color}">
+              <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+              <span class="src">${esc(v.src)}</span>
+            </div>
+            <div class="video-body">
+              <div class="video-title">${flag}${esc(v.title)}</div>
+              <div class="video-meta"><span>${esc(v.meta)}</span><span>·</span><span>正版来源</span></div>
+            </div>
+          </a>`;
+      }).join('');
+
+      const ptsBadge = g.points ? `<span class="vt-pts">${g.points}分</span>` : '';
+
       return `
-        <a class="video-card" href="${esc(v.url)}" target="_blank" rel="noopener nofollow">
-          <div class="video-thumb ${v.color}">
-            <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-            <span class="src">${esc(v.src)}</span>
+        <div class="vt-group">
+          <div class="vt-dot"></div>
+          <div class="vt-header">
+            <div class="vt-header-top">
+              <span class="vt-type ${typeClass(g.type)}">${typeIcon(g.type)} ${esc(g.type)}${ptsBadge}</span>
+              <span class="vt-date">${esc(g.date)}</span>
+            </div>
+            <div class="vt-event-name">${esc(g.event)}</div>
+            <div class="vt-event-loc">📍 ${esc(g.loc)}</div>
+            <div class="vt-event-desc">${esc(g.desc)}</div>
           </div>
-          <div class="video-body">
-            <div class="video-title">${flag}${esc(v.title)}</div>
-            <div class="video-meta"><span>${esc(v.meta)}</span><span>·</span><span>正版来源</span></div>
-          </div>
-        </a>`;
+          <div class="vt-videos">${videosHtml}</div>
+        </div>`;
     }).join('');
   }
 
@@ -381,7 +412,11 @@
     };
     box.innerHTML = TOURNAMENT_ARCHIVE.map(yr => {
       const eventsHtml = yr.events.map(ev => {
-        const rows = ev.results.map(r => `
+        const rows = ev.results.map(r => {
+          const vidLink = ev.videoUrl
+            ? `<a class="archive-vid" href="${esc(ev.videoUrl)}" target="_blank" rel="noopener nofollow" title="观看比赛视频">🎬</a>`
+            : '<span class="archive-vid-na">—</span>';
+          return `
           <tr>
             <td>${ev.date}${ev.endDate ? ' –<br>' + ev.endDate : ''}</td>
             <td><span class="archive-event-name">${esc(ev.name)}</span></td>
@@ -391,7 +426,8 @@
             <td><span class="archive-result ${resultClass(r.result)}">${esc(r.result)}</span></td>
             <td style="font-size:13px;">${esc(r.detail)}</td>
             <td><a class="archive-src" href="${esc(ev.url)}" target="_blank" rel="noopener nofollow">${esc(ev.src)}</a></td>
-          </tr>`).join('');
+            <td class="archive-vid-col">${vidLink}</td>
+          </tr>`}).join('');
         return rows;
       }).join('');
       return `
@@ -400,7 +436,7 @@
           <table class="archive-table">
             <thead>
               <tr>
-                <th>日期</th><th>赛事</th><th>级别</th><th>选手</th><th>项目</th><th>成绩</th><th>详情</th><th>来源</th>
+                <th>日期</th><th>赛事</th><th>级别</th><th>选手</th><th>项目</th><th>成绩</th><th>详情</th><th>来源</th><th>视频</th>
               </tr>
             </thead>
             <tbody>${eventsHtml}</tbody>
@@ -516,38 +552,21 @@
     });
   }
 
-  /* ---------- 视频筛选 ---------- */
+  /* ---------- 视频筛选（按赛事分组） ---------- */
   function initVideoFilter() {
     const bar = $('.video-filter-bar');
     if (!bar) return;
     const chips = $$('.vf-chip[data-vf]', bar);
-    const box = $('[data-render="videos"]');
-    if (!chips.length || !box) return;
+    if (!chips.length) return;
 
-    const allVideos = typeof VIDEOS !== 'undefined' ? VIDEOS : [];
-    const paint = (list) => {
-      box.innerHTML = list.map((v) => {
-        const flag = v.sample ? '<span class="sample-flag">示例</span>' : '';
-        return `
-          <a class="video-card" href="${esc(v.url)}" target="_blank" rel="noopener nofollow">
-            <div class="video-thumb ${v.color}">
-              <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-              <span class="src">${esc(v.src)}</span>
-            </div>
-            <div class="video-body">
-              <div class="video-title">${flag}${esc(v.title)}</div>
-              <div class="video-meta"><span>${esc(v.meta)}</span><span>·</span><span>正版来源</span></div>
-            </div>
-          </a>`;
-      }).join('');
-    };
+    const allGroups = typeof VIDEOS_TIMELINE !== 'undefined' ? VIDEOS_TIMELINE : [];
 
     chips.forEach(chip => {
       chip.addEventListener('click', () => {
         chips.forEach(c => c.classList.remove('active'));
         chip.classList.add('active');
         const f = chip.dataset.vf;
-        paint(f === 'all' ? allVideos : allVideos.filter(v => v.event === f));
+        renderVideoTimeline(f === 'all' ? allGroups : allGroups.filter(g => g.cat === f));
       });
     });
   }
@@ -663,7 +682,7 @@
     initNav();
     renderUpdates();
     renderNews();
-    renderVideos();
+    renderVideoTimeline();
     renderSources();
     renderForum();
     initPostModal();

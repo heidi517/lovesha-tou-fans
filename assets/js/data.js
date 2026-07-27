@@ -121,23 +121,82 @@ const NEWS = [
   { cat: 'domestic', tag: '国内', color: 't-plum', title: '全锦赛双打：王楚钦/孙颖莎混双止步半决赛，马龙/许昕老将合体', excerpt: '本届全锦赛首次将双打单独设为一站，打破省区市组队限制。王楚钦/孙颖莎作为头号种子搭档混双，半决赛2-3不敌袁励岑/王艺迪。马龙/许昕时隔六年再度联手出战男双。', src: '央视体育 / 新华社', date: '2026-07-14', url: 'https://ysxw.cctv.cn/article.html?item_id=11812953281190128643' },
 ];
 
-/* ---------- 比赛视频 · 按赛事时间线排列（仅比赛·官方源） ---------- */
-const VIDEOS = [
-  { src: '咪咕视频', color: 't-gold', title: '乒超联赛 山东魏桥 vs 山东鲁能 王楚钦出战', meta: '2026-07-23 · 乒超常规赛第1站', url: 'https://www.miguvideo.com/', event: 'domestic' },
-  { src: '央视体育', color: 't-red', title: 'WTT美国大满贯：孙颖莎女单决赛 4-3胜蒯曼', meta: '2026-07-06 · 大满贯2000分', url: 'https://sports.cctv.com/', event: 'international' },
-  { src: 'WTT 官网', color: 't-blue', title: 'WTT美国大满贯 男单决赛：松岛辉空夺冠', meta: '2026-07-06 · 大满贯2000分', url: 'https://worldtabletennis.com/', event: 'international' },
-  { src: '央视体育', color: 't-red', title: '伦敦世乒赛女团决赛：中国3-2逆转日本夺冠', meta: '2026-05-10 · 世乒赛团体', url: 'https://sports.cctv.com/', event: 'international' },
-  { src: '央视体育', color: 't-blue', title: '伦敦世乒赛男团决赛：中国3-0日本 12连冠', meta: '2026-05-10 · 世乒赛团体', url: 'https://sports.cctv.com/', event: 'international' },
-  { src: '咪咕视频', color: 't-red', title: '澳门世界杯：王楚钦男单决赛 4-3胜松岛辉空', meta: '2026-04-05 · 世界杯2500分', url: 'https://www.miguvideo.com/', event: 'international' },
-  { src: '央视体育', color: 't-red', title: 'WTT新加坡大满贯：孙颖莎女单决赛 4-2胜王曼昱', meta: '2026-03-14 · 大满贯2000分', url: 'https://sports.cctv.com/', event: 'international' },
-  { src: '央视体育', color: 't-blue', title: 'WTT新加坡大满贯：王楚钦男单决赛 4-0胜林昀儒', meta: '2026-03-14 · 大满贯2000分', url: 'https://sports.cctv.com/', event: 'international' },
-  { src: '央视体育', color: 't-red', title: '亚洲杯：孙颖莎女单决赛 4-3胜王曼昱', meta: '2026-02-23 · 洲际杯1000分', url: 'https://sports.cctv.com/', event: 'international' },
-  { src: '央视体育', color: 't-blue', title: '亚洲杯：王楚钦男单决赛 4-2胜张本智和', meta: '2026-02-23 · 洲际杯1000分', url: 'https://sports.cctv.com/', event: 'international' },
-  { src: '咪咕视频', color: 't-gold', title: 'WTT中国大满贯：孙颖莎女单决赛 2-4负王曼昱', meta: '2025-10 · 大满贯2000分', url: 'https://www.miguvideo.com/', event: 'international' },
-  { src: '央视体育', color: 't-red', title: 'WTT瑞典大满贯：孙颖莎女单决赛 3-0胜早田希娜', meta: '2025-08 · 大满贯2000分', url: 'https://sports.cctv.com/', event: 'international' },
-  { src: '央视体育', color: 't-blue', title: '多哈世乒赛：王楚钦男单夺冠 首夺世乒赛冠军', meta: '2025-05 · 世乒赛单项', url: 'https://sports.cctv.com/', event: 'international' },
-  { src: '央视体育', color: 't-red', title: '多哈世乒赛：孙颖莎女单夺冠 蝉联冠军', meta: '2025-05 · 世乒赛单项', url: 'https://sports.cctv.com/', event: 'international' },
+/* ---------- 比赛视频 · 按赛事时间线分组（仅比赛·官方源） ---------- */
+const VIDEOS_TIMELINE = [
+  {
+    event: '2026乒超联赛', date: '2026-07-23', cat: 'domestic', type: '联赛', loc: '大连 / 雄安',
+    desc: '孙颖莎代表深圳大学，王楚钦代表山东魏桥出战新赛季',
+    videos: [
+      { src: '咪咕视频', color: 't-gold', title: '山东魏桥 vs 山东鲁能 王楚钦出战', meta: '男团常规赛第1轮', url: 'https://www.miguvideo.com/' },
+    ]
+  },
+  {
+    event: 'WTT美国大满贯', date: '2026-07-06', cat: 'international', type: '大满贯', points: 2000, loc: '美国·洛杉矶',
+    desc: '国乒3冠3亚收官，孙颖莎斩获第6座大满贯女单冠军',
+    videos: [
+      { src: '央视体育', color: 't-red', title: '孙颖莎女单决赛 4-3胜蒯曼', meta: '决胜局11-4锁定胜局 · 第6座大满贯', url: 'https://sports.cctv.com/' },
+      { src: 'WTT 官网', color: 't-blue', title: '男单决赛：松岛辉空夺冠', meta: '日本首位大满贯男单冠军', url: 'https://worldtabletennis.com/' },
+    ]
+  },
+  {
+    event: '伦敦世乒赛（团体）', date: '2026-05-10', cat: 'international', type: '世乒赛', loc: '英国·伦敦',
+    desc: '女团3-2惊天逆转日本、男团12连冠；莎头双双当选最佳运动员',
+    videos: [
+      { src: '央视体育', color: 't-red', title: '女团决赛：中国3-2逆转日本夺冠', meta: '孙颖莎独得两分 · 最佳女运动员', url: 'https://sports.cctv.com/' },
+      { src: '央视体育', color: 't-blue', title: '男团决赛：中国3-0日本 12连冠', meta: '王楚钦10战全胜 · 最佳男运动员', url: 'https://sports.cctv.com/' },
+    ]
+  },
+  {
+    event: 'WTT澳门世界杯', date: '2026-04-05', cat: 'international', type: '世界杯', points: 2500, loc: '中国·澳门',
+    desc: '王楚钦男单决赛4-3绝境逆转松岛辉空，夺得首个世界杯冠军',
+    videos: [
+      { src: '咪咕视频', color: 't-gold', title: '王楚钦男单决赛 4-3胜松岛辉空', meta: '首夺世界杯男单冠军 · 2500分', url: 'https://www.miguvideo.com/' },
+    ]
+  },
+  {
+    event: 'WTT新加坡大满贯', date: '2026-03-14', cat: 'international', type: '大满贯', points: 2000, loc: '新加坡',
+    desc: '孙颖莎女单4-2胜王曼昱，王楚钦男单4-0横扫林昀儒',
+    videos: [
+      { src: '央视体育', color: 't-red', title: '孙颖莎女单决赛 4-2胜王曼昱', meta: '大满贯女单冠军 · 2000分', url: 'https://sports.cctv.com/' },
+      { src: '央视体育', color: 't-blue', title: '王楚钦男单决赛 4-0胜林昀儒', meta: '大满贯男单冠军 · 2000分', url: 'https://sports.cctv.com/' },
+    ]
+  },
+  {
+    event: '亚洲杯', date: '2026-02-23', cat: 'international', type: '洲际杯', points: 1000, loc: '亚洲',
+    desc: '孙颖莎女单4-3险胜王曼昱、王楚钦男单4-2胜张本智和，双双卫冕',
+    videos: [
+      { src: '央视体育', color: 't-red', title: '孙颖莎女单决赛 4-3胜王曼昱', meta: '亚洲杯女单冠军 · 1000分', url: 'https://sports.cctv.com/' },
+      { src: '央视体育', color: 't-blue', title: '王楚钦男单决赛 4-2胜张本智和', meta: '亚洲杯男单冠军(卫冕) · 1000分', url: 'https://sports.cctv.com/' },
+    ]
+  },
+  {
+    event: 'WTT中国大满贯', date: '2025-10', cat: 'international', type: '大满贯', points: 2000, loc: '中国·北京',
+    desc: '孙颖莎女单决赛2-4负王曼昱',
+    videos: [
+      { src: '咪咕视频', color: 't-gold', title: '孙颖莎女单决赛 2-4负王曼昱', meta: '大满贯女单亚军 · 2000分', url: 'https://www.miguvideo.com/' },
+    ]
+  },
+  {
+    event: 'WTT瑞典大满贯', date: '2025-08', cat: 'international', type: '大满贯', points: 2000, loc: '瑞典·马尔默',
+    desc: '孙颖莎女单决赛3-0横扫早田希娜夺冠',
+    videos: [
+      { src: '央视体育', color: 't-red', title: '孙颖莎女单决赛 3-0胜早田希娜', meta: '大满贯女单冠军 · 2000分', url: 'https://sports.cctv.com/' },
+    ]
+  },
+  {
+    event: '多哈世乒赛（单项）', date: '2025-05', cat: 'international', type: '世乒赛', loc: '卡塔尔·多哈',
+    desc: '王楚钦首夺世乒赛男单冠军、孙颖莎蝉联女单冠军，双双登顶',
+    videos: [
+      { src: '央视体育', color: 't-blue', title: '王楚钦男单夺冠 首夺世乒赛冠军', meta: '世乒赛男单冠军', url: 'https://sports.cctv.com/' },
+      { src: '央视体育', color: 't-red', title: '孙颖莎女单夺冠 蝉联冠军', meta: '世乒赛女单冠军(卫冕)', url: 'https://sports.cctv.com/' },
+    ]
+  },
 ];
+
+/* 向下兼容：扁平视频列表（供旧代码/筛选使用） */
+const VIDEOS = VIDEOS_TIMELINE.flatMap(g =>
+  g.videos.map(v => ({ ...v, event: g.cat, eventName: g.event, eventDate: g.date }))
+);
 
 /* ---------- 赛事日历（2026年下半年·国际+国内） ---------- */
 const CALENDAR = [
@@ -269,6 +328,7 @@ const TOURNAMENT_ARCHIVE = [
     year: '2026',
     events: [
       { date: '2026-07-23', name: '乒超联赛（常规赛）', loc: '大连 / 雄安', type: '联赛',
+        videoUrl: 'https://www.miguvideo.com/',
         results: [
           { player: 'sun', event: '女团', result: '进行中', detail: '代表深圳大学出战' },
           { player: 'wang', event: '男团', result: '进行中', detail: '代表山东魏桥首战鲁能' },
@@ -280,27 +340,32 @@ const TOURNAMENT_ARCHIVE = [
           { player: 'wang', event: '男双', result: '未参赛', detail: '专注混双单项' },
         ], src: '新华社 / 中国乒协', url: 'https://www.ctta.cn/xwzx/ppxw/2026/0720/702758.html' },
       { date: '2026-07-06', name: 'WTT美国大满贯', loc: '美国·洛杉矶', type: '大满贯', points: 2000,
+        videoUrl: 'https://sports.cctv.com/',
         results: [
           { player: 'sun', event: '女单', result: '🥇 冠军', detail: '决赛4-3胜蒯曼（第6座大满贯）' },
           { player: 'wang', event: '男单', result: '第三轮', detail: '1-4不敌丹麦选手林德' },
           { player: 'both', event: '混双', result: '🥈 亚军', detail: '决赛负于林诗栋/蒯曼' },
         ], src: 'Olympics.com / WTT官网', url: 'https://www.olympics.com/zh/news/2026-us-smash-sun-yingsha-edges-kuaiman-seven-game-thriller-clinch-title-china-three-crowns' },
       { date: '2026-06-10', endDate: '2026-06-16', name: '伦敦世乒赛（团体）', loc: '英国·伦敦', type: '世乒赛',
+        videoUrl: 'https://sports.cctv.com/',
         results: [
           { player: 'sun', event: '女团', result: '🥇 冠军', detail: '中国队3-0日本队夺冠' },
           { player: 'wang', event: '男团', result: '🥇 冠军', detail: '中国队3-1德国队夺冠，首次以队长身份出战' },
         ], src: 'ITTF / 新华社', url: 'https://www.ittf.com/' },
       { date: '2026-04-15', endDate: '2026-04-21', name: 'WTT澳门世界杯', loc: '中国·澳门', type: '世界杯', points: 2500,
+        videoUrl: 'https://www.miguvideo.com/',
         results: [
           { player: 'sun', event: '女单', result: '🥈 亚军', detail: '决赛不敌王曼昱' },
           { player: 'wang', event: '男单', result: '🥇 冠军', detail: '决赛4-1胜林诗栋' },
         ], src: 'WTT官网 / 央视体育', url: 'https://worldtabletennis.com/' },
       { date: '2026-03-08', endDate: '2026-03-14', name: 'WTT新加坡大满贯', loc: '新加坡', type: '大满贯', points: 2000,
+        videoUrl: 'https://sports.cctv.com/',
         results: [
           { player: 'sun', event: '女单', result: '🥇 冠军', detail: '决赛4-2胜王曼昱' },
           { player: 'wang', event: '男单', result: '八强', detail: '不敌张本智和' },
         ], src: 'WTT官网 / 央视体育', url: 'https://worldtabletennis.com/' },
       { date: '2026-02-18', endDate: '2026-02-23', name: '亚洲杯', loc: '地点待确认', type: '洲际', points: 1000,
+        videoUrl: 'https://sports.cctv.com/',
         results: [
           { player: 'sun', event: '女单', result: '🥇 冠军', detail: '决赛4-3胜王曼昱' },
           { player: 'wang', event: '男单', result: '🥇 冠军', detail: '决赛4-2胜张本智和' },
@@ -320,11 +385,13 @@ const TOURNAMENT_ARCHIVE = [
           { player: 'both', event: '混团', result: '待补充', detail: '中国队成绩以官方为准' },
         ], src: 'ITTF', url: 'https://www.ittf.com/' },
       { date: '2025-10', name: 'WTT中国大满贯', loc: '中国·北京', type: '大满贯', points: 2000,
+        videoUrl: 'https://www.miguvideo.com/',
         results: [
           { player: 'sun', event: '女单', result: '🥈 亚军', detail: '决赛2-4负王曼昱' },
           { player: 'wang', event: '男单', result: '待补充', detail: '成绩以官方为准' },
         ], src: 'WTT官网', url: 'https://worldtabletennis.com/' },
       { date: '2025-08', name: 'WTT瑞典大满贯', loc: '瑞典·马尔默', type: '大满贯', points: 2000,
+        videoUrl: 'https://sports.cctv.com/',
         results: [
           { player: 'sun', event: '女单', result: '🥇 冠军', detail: '决赛3-0胜早田希娜' },
         ], src: 'WTT官网 / 央视体育', url: 'https://worldtabletennis.com/' },
@@ -333,6 +400,7 @@ const TOURNAMENT_ARCHIVE = [
           { player: 'wang', event: '男单', result: '🥈 亚军', detail: '决赛0-4负樊振东' },
         ], src: 'WTT官网', url: 'https://worldtabletennis.com/' },
       { date: '2025-05', name: '多哈世乒赛（单项）', loc: '卡塔尔·多哈', type: '世乒赛',
+        videoUrl: 'https://sports.cctv.com/',
         results: [
           { player: 'sun', event: '女单', result: '🥇 冠军', detail: '蝉联世乒赛女单冠军' },
           { player: 'wang', event: '男单', result: '🥇 冠军', detail: '首夺世乒赛男单冠军' },
