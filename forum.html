@@ -41,70 +41,46 @@
 
   <section class="section">
     <div class="wrap">
-      <div class="notice-box" style="margin-bottom:24px;">
-        <span>🧪</span>
-        <div><b>当前为演示态：</b>帖子为示例占位内容，暂不真实保存。接入 <b>Giscus（基于 GitHub Discussions，免费）</b>或自建后端后即可真实发帖/回复——接入点已在代码中留好，详见 <a href="about.html#forum">关于页 · 论坛接入</a>。</div>
-      </div>
-
       <div class="forum-grid">
         <aside class="forum-cats">
-          <div class="cat active" data-cat="all"><span class="ico">☰</span> 全部 <span class="cnt">8</span></div>
-          <div class="cat" data-cat="match"><span class="ico">🏆</span> 赛事讨论 <span class="cnt">3</span></div>
-          <div class="cat" data-cat="cheer"><span class="ico">⭐</span> 选手应援 <span class="cnt">2</span></div>
-          <div class="cat" data-cat="tech"><span class="ico">🏓</span> 技术交流 <span class="cnt">2</span></div>
-          <div class="cat" data-cat="water"><span class="ico">💬</span> 闲聊水区 <span class="cnt">1</span></div>
+          <div class="cat" style="cursor:default"><span class="ico">💬</span> 全部讨论</div>
+          <div class="cat" style="cursor:default"><span class="ico">🏆</span> 赛事讨论</div>
+          <div class="cat" style="cursor:default"><span class="ico">⭐</span> 选手应援</div>
+          <div class="cat" style="cursor:default"><span class="ico">🏓</span> 技术交流</div>
+          <div class="cat" style="cursor:default"><span class="ico">🎉</span> 闲聊水区</div>
           <div style="margin-top:18px; padding:14px; background:var(--c-bg-alt); border-radius:12px; font-size:13px; color:var(--c-ink-soft);">
             <b style="color:var(--c-ink)">论坛公约</b><br>
             · 友善讨论，不人身攻击<br>
             · 不传未经证实的信息<br>
             · 不搬运受版权保护内容<br>
-            · 尊重运动员隐私
+            · 尊重运动员隐私<br><br>
+            <b style="color:var(--c-ink)">💡 如何发帖</b><br>
+            在下方评论区登录 GitHub 账号<br>
+            即可直接发帖、回复、点赞。
           </div>
         </aside>
 
-        <div>
-          <div class="thread-list" data-render="threads"></div>
-          <div id="forumEmpty" class="center muted" style="display:none; padding:40px 0;">该分区暂无帖子</div>
+        <div style="min-height:500px;">
+          <!-- Giscus 实时论坛 —— 基于 GitHub Discussions -->
+          <script src="https://giscus.app/client.js"
+            data-repo="heidi517/lovesha-tou-fans"
+            data-repo-id="R_kgDOTkveKQ"
+            data-category="General"
+            data-category-id="DIC_kwDOTkveKc4DCD5g"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="light"
+            data-lang="zh-CN"
+            crossorigin="anonymous"
+            async>
+          </script>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- 发帖浮按钮 -->
-  <button class="fab" data-fab="post">✏️ 发帖</button>
-
-  <!-- 发帖弹窗 -->
-  <div class="modal-mask" id="postModal">
-    <div class="modal">
-      <button class="modal-close" aria-label="关闭">×</button>
-      <h3>发个新帖</h3>
-      <p>选好分区，聊聊你想说的。当前为演示态，帖子暂不保存。</p>
-      <form>
-        <div class="field">
-          <label>分区</label>
-          <select id="postCat">
-            <option value="match">赛事讨论</option>
-            <option value="cheer">选手应援</option>
-            <option value="tech">技术交流</option>
-            <option value="water">闲聊水区</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>标题</label>
-          <input id="postTitle" type="text" placeholder="一句话概括你的帖子" />
-        </div>
-        <div class="field">
-          <label>内容</label>
-          <textarea id="postBody" placeholder="详细说说……（请勿搬运受版权保护内容）"></textarea>
-        </div>
-        <div class="notice-box"><span>🛡️</span><div><b>提醒：</b>请勿发布侵权内容、不实信息或人身攻击。</div></div>
-        <div class="modal-actions">
-          <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('postModal').classList.remove('show')">取消</button>
-          <button type="submit" class="btn btn-primary btn-sm">发布</button>
-        </div>
-      </form>
-    </div>
-  </div>
 
   <footer class="footer">
     <div class="wrap">
