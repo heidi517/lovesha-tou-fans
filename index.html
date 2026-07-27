@@ -28,6 +28,7 @@
         <a href="news.html">资讯</a>
         <a href="videos.html">视频</a>
         <a href="forum.html">论坛</a>
+        <a href="head-to-head.html">交手战绩</a>
         <a href="about.html">关于</a>
       </div>
       <div class="nav-cta">
@@ -53,8 +54,8 @@
         </div>
         <div class="hero-stats">
           <div class="hero-stat"><div class="num">2</div><div class="lbl">聚焦选手</div></div>
-          <div class="hero-stat"><div class="num">6+</div><div class="lbl">官方来源</div></div>
-          <div class="hero-stat"><div class="num">5</div><div class="lbl">论坛分区</div></div>
+          <div class="hero-stat"><div class="num">10+</div><div class="lbl">下半年赛事跟踪</div></div>
+          <div class="hero-stat"><div class="num">5</div><div class="lbl">对战档案</div></div>
           <div class="hero-stat"><div class="num">24h</div><div class="lbl">资讯更新</div></div>
         </div>
       </div>
@@ -180,28 +181,47 @@
     </div>
   </section>
 
-  <!-- 赛事倒计时（示例） -->
+  <!-- 赛事日历 + 倒计时 -->
   <section class="section">
     <div class="wrap">
       <div class="section-head">
         <div>
-          <div class="section-title">赛事<span class="accent">倒计时</span></div>
+          <div class="section-title">赛事<span class="accent">日历</span> · 倒计时</div>
           <div class="section-line"></div>
         </div>
-        <div class="section-sub"><span class="sample-flag">演示态</span> 设定真实赛事日期后自动倒数</div>
+        <a class="btn btn-outline btn-sm" href="head-to-head.html">交手战绩 →</a>
       </div>
-      <div style="display:flex; align-items:center; gap:30px; flex-wrap:wrap;">
-        <div class="countdown" data-countdown>
+      <!-- 大倒计时 -->
+      <div style="display:flex; align-items:center; gap:30px; flex-wrap:wrap; margin-bottom:24px;">
+        <div class="countdown" data-countdown id="countdownTarget" data-target="">
           <div class="cd-box"><div class="cd-num" data-cd="d">0</div><div class="cd-lbl">天</div></div>
           <div class="cd-box"><div class="cd-num" data-cd="h">00</div><div class="cd-lbl">时</div></div>
           <div class="cd-box"><div class="cd-num" data-cd="m">00</div><div class="cd-lbl">分</div></div>
           <div class="cd-box"><div class="cd-num" data-cd="s">00</div><div class="cd-lbl">秒</div></div>
         </div>
         <div>
-          <div style="font-size:18px; font-weight:800;">下一站：示例赛事</div>
-          <div class="muted" style="font-size:14px; margin-top:4px;">把 <code>data-target="YYYY-MM-DD"</code> 改成真实赛事日期即可。</div>
+          <div style="font-size:18px; font-weight:800;" id="cdLabel" data-cd-label>加载中...</div>
+          <div class="muted" style="font-size:13px; margin-top:4px;">倒计时自动匹配最近一场赛事</div>
         </div>
       </div>
+      <!-- 赛事卡片 -->
+      <div class="calendar-grid" data-render="calendar"></div>
+      <!-- 直播入口条 -->
+      <div class="live-bar" data-render="livebar"></div>
+    </div>
+  </section>
+
+  <!-- 精选墙 -->
+  <section class="section-tight" style="background: var(--c-bg-alt);">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-title">精选<span class="accent">墙</span></div>
+          <div class="section-line"></div>
+        </div>
+        <div class="section-sub">本周必看 · 手动精选</div>
+      </div>
+      <div class="featured-grid" data-render="featured"></div>
     </div>
   </section>
 

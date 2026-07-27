@@ -97,6 +97,68 @@ const VIDEOS = [
   { src: '央视·体坛零距离', color: 't-plum', title: '王楚钦回应出任男队队长：接好马龙的接力棒', meta: '2026-06-11 · 王皓宣布任命', url: 'https://tv.cctv.cn/' },
 ];
 
+/* ---------- 赛事日历（2026年下半年） ---------- */
+const CALENDAR = [
+  { date: '2026-08-05', endDate: '2026-08-09', name: 'WTT横滨冠军赛', loc: '日本·横滨', type: '冠军赛', points: 1000, live: [{ name: '央视体育', url: 'https://sports.cctv.com/' }, { name: '咪咕视频', url: 'https://www.miguvideo.com/' }, { name: 'WTT', url: 'https://worldtabletennis.com/' }] },
+  { date: '2026-08-13', endDate: '2026-08-23', name: 'WTT欧洲大满贯', loc: '瑞典·马尔默', type: '大满贯', points: 2000, live: [{ name: '央视体育', url: 'https://sports.cctv.com/' }, { name: '咪咕视频', url: 'https://www.miguvideo.com/' }, { name: 'WTT', url: 'https://worldtabletennis.com/' }] },
+  { date: '2026-09-08', endDate: '2026-09-13', name: 'WTT澳门冠军赛', loc: '中国·澳门', type: '冠军赛', points: 1000, live: [{ name: '央视体育', url: 'https://sports.cctv.com/' }, { name: '咪咕视频', url: 'https://www.miguvideo.com/' }] },
+  { date: '2026-09-20', endDate: '2026-09-28', name: '名古屋亚运会', loc: '日本·名古屋', type: '综合', points: 2000, live: [{ name: '央视体育', url: 'https://sports.cctv.com/' }, { name: '咪咕视频', url: 'https://www.miguvideo.com/' }] },
+  { date: '2026-10-01', endDate: '2026-10-11', name: 'WTT中国大满贯', loc: '中国·北京', type: '大满贯', points: 2000, live: [{ name: '央视体育', url: 'https://sports.cctv.com/' }, { name: '咪咕视频', url: 'https://www.miguvideo.com/' }, { name: 'WTT', url: 'https://worldtabletennis.com/' }] },
+  { date: '2026-10-12', endDate: '2026-10-25', name: '亚锦赛（单项）', loc: '乌兹别克·塔什干', type: '洲际', points: 1000, live: [{ name: '央视体育', url: 'https://sports.cctv.com/' }] },
+  { date: '2026-10-27', endDate: '2026-11-01', name: 'WTT蒙彼利埃冠军赛', loc: '法国·蒙彼利埃', type: '冠军赛', points: 1000, live: [{ name: 'WTT', url: 'https://worldtabletennis.com/' }] },
+  { date: '2026-11-03', endDate: '2026-11-08', name: 'WTT法兰克福冠军赛', loc: '德国·法兰克福', type: '冠军赛', points: 1000, live: [{ name: 'WTT', url: 'https://worldtabletennis.com/' }] },
+  { date: '2026-11-30', endDate: '2026-12-06', name: '混团世界杯', loc: '中国·成都', type: '世界杯', points: 2500, live: [{ name: '央视体育', url: 'https://sports.cctv.com/' }, { name: '咪咕视频', url: 'https://www.miguvideo.com/' }] },
+  { date: '2026-12-08', endDate: '2026-12-13', name: 'WTT总决赛', loc: '中国·香港', type: '年终', points: 2000, live: [{ name: '央视体育', url: 'https://sports.cctv.com/' }, { name: '咪咕视频', url: 'https://www.miguvideo.com/' }, { name: 'WTT', url: 'https://worldtabletennis.com/' }] },
+];
+
+/* ---------- 直播入口汇总 ---------- */
+const LIVE_STREAMS = [
+  { name: '央视体育 CCTV5', desc: '国乒主转播平台', url: 'https://sports.cctv.com/', icon: '央' },
+  { name: '咪咕视频', desc: '正版高清直播', url: 'https://www.miguvideo.com/', icon: '咪' },
+  { name: 'WTT 官网', desc: '国际赛官方直播', url: 'https://worldtabletennis.com/', icon: 'W' },
+];
+
+/* ---------- 交手纪录 ---------- */
+const HEAD_TO_HEAD = {
+  sun: [
+    { opp: '王曼昱', total: '21胜13负', rate: 61.8, recent: '近4场各胜2场', desc: '国际赛场累计交手超30次，2023年后孙颖莎总战绩占优。两人近10次单打全部在决赛相遇，女子乒坛最强双子星对决。', highlights: ['2024澳门世界杯决赛 4-3胜', '2025中国大满贯决赛 2-4负', '2026亚洲杯决赛 4-3胜', '2026新加坡大满贯决赛 4-2胜'] },
+    { opp: '陈梦', total: '11胜7负', rate: 61.1, recent: '2022年后孙颖莎占绝对优势', desc: '国际赛场约18次交手，东京奥运会后孙颖莎快速成长，2023年至今对阵陈梦胜绩占绝对优势。但奥运决赛两度惜败。', highlights: ['2020世界杯决赛 1-4负', '2021东京奥运决赛 2-4负', '2023德班世乒赛决赛 4-2胜', '2024巴黎奥运决赛 2-4负'] },
+    { opp: '早田希娜', total: '19胜0负', rate: 100, recent: '12年全胜，堪称克星', desc: '从2014年亚青赛到2026年伦敦世乒赛，12年间19次交锋全胜，其中12场3-0或4-0零封。早田自认"赢面接近零"。', highlights: ['2024巴黎奥运半决赛 4-0胜', '2025瑞典大满贯 3-0胜', '2026新加坡大满贯 4-2胜', '2026伦敦世乒赛 3-0胜'] },
+    { opp: '王艺迪', total: '13胜4负', rate: 76.5, recent: '稳定占优', desc: '国内赛场多次交手，孙颖莎综合实力明显占优。', highlights: [] },
+    { opp: '陈幸同', total: '10胜4负', rate: 71.4, recent: '优势明显', desc: '同为新生代顶尖选手，孙颖莎整体交手战绩领先。', highlights: [] },
+  ],
+  wang: [
+    { opp: '樊振东', total: '8胜26负', rate: 23.5, recent: '2024年后差距缩小，各胜2场', desc: '国乒男单两代领军人物的经典对决。樊振东长期占据绝对优势，但近两年王楚钦逐渐缩小差距，2026年大满贯赛4-3逆转获胜是里程碑。', highlights: ['2023杭州亚运会决赛 4-3胜', '2024多哈总决赛 4-0胜', '2025全运会半决赛 2-4负', '2026大满贯赛 4-3胜'] },
+    { opp: '张本智和', total: '17胜3负', rate: 85.0, recent: '近10场9胜1负', desc: '中日男单一哥的经典对位。王楚钦在绝大部分交锋中占据上风，8连胜后被张本在横滨终结，但2026亚洲杯决赛再次证明实力。', highlights: ['2024福冈总决赛 4-0胜', '2025美国大满贯决赛 4-0胜', '2025横滨冠军赛决赛 2-4负', '2026亚洲杯决赛 4-2胜'] },
+  ],
+};
+
+/* ---------- 生涯赛事档案 ---------- */
+const CAREER_TIMELINE = {
+  sun: [
+    { period: '2017-2019', title: '崭露头角', items: ['2017年进入国家一队', '2019年布达佩斯世乒赛女双冠军', '2019年世界杯团体冠军'] },
+    { period: '2020-2021', title: '奥运初体验', items: ['2020东京奥运会女单银牌', '2020东京奥运会女团金牌', '2021年休斯敦世乒赛女双/混双冠军'] },
+    { period: '2022-2023', title: '世界第一之路', items: ['2022年登顶女单世界第一', '2023年德班世乒赛女单冠军', '2023年杭州亚运会女单冠军', '2023年WTT新加坡大满贯三冠王'] },
+    { period: '2024', title: '巴黎荣光', items: ['2024澳门世界杯女单冠军', '2024巴黎奥运会混双金牌', '2024巴黎奥运会女团金牌', '2024巴黎奥运会女单银牌'] },
+    { period: '2025-至今', title: '持续统治', items: ['2025多哈世乒赛女单冠军', '2025WTT瑞典大满贯冠军', '2026亚洲杯女单冠军', '2026WTT新加坡大满贯冠军', '2026WTT美国大满贯冠军（第6座）'] },
+  ],
+  wang: [
+    { period: '2015-2019', title: '少年成名', items: ['2015年入选国家二队', '2018年青奥会男单冠军', '2019年世乒赛男双冠军'] },
+    { period: '2020-2021', title: '快速成长', items: ['2020东京奥运会P卡选手', '2021年休斯敦世乒赛混双冠军'] },
+    { period: '2022-2023', title: '跻身顶尖', items: ['2023年德班世乒赛男双/混双冠军', '2023年杭州亚运会男单冠军（决赛4-3胜樊振东）', '2023年登顶男单世界第一'] },
+    { period: '2024', title: '巴黎双金', items: ['2024巴黎奥运会混双金牌', '2024巴黎奥运会男团金牌', '2024WTT多哈总决赛冠军'] },
+    { period: '2025-至今', title: '男队领军人', items: ['2025多哈世乒赛男单冠军', '2025WTT美国大满贯决赛', '2026年出任国乒男队队长', '2026亚洲杯男单冠军', '2026澳门世界杯男单冠军'] },
+  ],
+};
+
+/* ---------- 精选墙（首页·每周手动更新） ---------- */
+const FEATURED = [
+  { tag: '必看', color: 't-red', title: '央视《体坛零距离》：王楚钦回应出任男队队长', desc: '接好马龙的接力棒——王楚钦首谈队长身份。', url: 'https://tv.cctv.cn/' },
+  { tag: '深度', color: 't-blue', title: '孙颖莎美国大满贯七局夺冠全复盘', desc: '第六局浪费三赛点后决胜局11-4锁定，第六座大满贯入账。', url: 'https://www.olympics.com/zh/news/2026-us-smash-sun-yingsha-edges-kuaiman-seven-game-thriller-clinch-title-china-three-crowns' },
+  { tag: '赛程', color: 't-gold', title: '2026下半年赛事日历：亚运会+三大满贯+世界杯', desc: '8月至12月密集赛程全览，横滨/瑞典/澳门/名古屋/北京一站不落。', url: '#calendar' },
+  { tag: '回顾', color: 't-green', title: '莎头组合·混双经典战役回顾', desc: '从东京到巴黎，那些年我们一起追过的"莎头"混双。', url: 'forum.html' },
+];
+
 /* ---------- 论坛分区与示例帖 ---------- */
 const FORUM_CATS = [
   { id: 'all', name: '全部', ico: '☰', count: 8 },

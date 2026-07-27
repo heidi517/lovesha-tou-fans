@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>王楚钦 · 莎头球迷站</title>
-  <meta name="description" content="王楚钦球迷页：资料、打法、荣誉墙、最新动态与比赛视频（指向官方正规来源）。球迷自制非官方。" />
+  <meta name="description" content="王楚钦球迷百科：资料、生涯时间线、冠军荣誉墙、对战纪录、比赛视频。球迷自制非官方。" />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-<body>
+<body data-player="wang">
 
   <nav class="nav">
     <div class="wrap nav-inner">
@@ -22,6 +22,7 @@
         <a href="news.html">资讯</a>
         <a href="videos.html">视频</a>
         <a href="forum.html">论坛</a>
+        <a href="head-to-head.html">交手战绩</a>
         <a href="about.html">关于</a>
       </div>
       <div class="nav-cta">
@@ -42,69 +43,75 @@
             <span class="badge">男单 · 左手横板</span>
             <span class="badge">两面反胶</span>
             <span class="badge">正手抢冲</span>
-            <span class="badge">长期世界第一</span>
+            <span class="badge">男队队长</span>
           </div>
         </div>
       </div>
       <div class="fact-grid">
         <div class="fact"><div class="k">出生</div><div class="v">2000<small>.05.11</small></div></div>
         <div class="fact"><div class="k">籍贯</div><div class="v">吉林</div></div>
-        <div class="fact"><div class="k">打法</div><div class="v">左手<small>横板</small></div></div>
-        <div class="fact"><div class="k">招牌</div><div class="v">正手<small>抢冲</small></div></div>
+        <div class="fact"><div class="k">世界排名</div><div class="v">男单<small>第1位</small></div></div>
+        <div class="fact"><div class="k">身份</div><div class="v">队长<small>2026年起</small></div></div>
       </div>
     </div>
   </header>
 
-  <section class="section">
+  <section class="section-tight">
     <div class="wrap">
-      <div class="section-head">
-        <div><div class="section-title">关于<span class="accent">大头</span></div><div class="section-line"></div></div>
+      <div class="encyclopedia-tabs">
+        <div class="enc-tab active" data-tab="timeline">生涯时间线</div>
+        <div class="enc-tab" data-tab="honors">冠军荣誉墙</div>
+        <div class="enc-tab" data-tab="h2h">交手纪录</div>
+        <div class="enc-tab" data-tab="videos">比赛视频</div>
       </div>
-      <p style="font-size:16px; color:var(--c-ink-soft); max-width:780px;">
-        王楚钦，2000 年 5 月 11 日生于吉林，左手横板两面反胶打法。发球与正手抢冲突出，单板质量高，攻防转换快。
-        长期稳居男单世界前列，多次在奥运会、世乒赛、世界杯及 WTT 大满贯赛事中夺魁，被球迷称为"大头"。
-        他与孙颖莎组成的混双"莎头组合"是国乒重点混双搭档。
-      </p>
-      <p class="muted" style="font-size:13.5px; margin-top:12px;">以上为公开事实资料，源自公开报道。具体赛事成绩以官方公布为准。</p>
     </div>
   </section>
 
-  <section class="section-tight" style="background: var(--c-bg-alt);">
+  <section class="section" data-enc-section="timeline" style="display:block;">
+    <div class="wrap wrap-narrow">
+      <div class="section-head">
+        <div><div class="section-title">生涯<span class="accent">时间线</span></div><div class="section-line"></div></div>
+        <div class="section-sub">公开资料整理 · 以官方为准</div>
+      </div>
+      <div class="career-timeline" data-render="career"></div>
+    </div>
+  </section>
+
+  <section class="section" data-enc-section="honors" style="display:none;">
     <div class="wrap">
       <div class="section-head">
-        <div><div class="section-title">荣誉<span class="accent">墙</span></div><div class="section-line"></div></div>
-        <div class="section-sub">主要荣誉概览（公开资料 · 以官方为准）</div>
+        <div><div class="section-title">冠军<span class="accent">荣誉墙</span></div><div class="section-line"></div></div>
+        <div class="section-sub">主要成就概览（公开资料 · 以官方为准）</div>
       </div>
       <div class="achievements">
-        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#7a5a10">GOLD</text></svg><div class="yr">2024</div><div class="ev">奥运会 混双 & 团体</div><div class="mk" style="color:var(--c-red)">金牌</div></div>
-        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#D8D8D8" stroke="#999" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="11" font-weight="800" fill="#555">JOIN</text></svg><div class="yr">2024</div><div class="ev">奥运会 男单</div><div class="mk" style="color:var(--c-ink-mute)">参赛</div></div>
-        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#7a5a10">DBL</text></svg><div class="yr">多次</div><div class="ev">世乒赛 男双/混双</div><div class="mk" style="color:var(--c-red)">冠军</div></div>
-        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#7a5a10">CUP</text></svg><div class="yr">多次</div><div class="ev">世界杯 / WTT</div><div class="mk" style="color:var(--c-red)">冠军</div></div>
+        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="10" font-weight="800" fill="#7a5a10">CAPTAIN</text></svg><div class="yr">2026</div><div class="ev">国乒男队队长</div><div class="mk" style="color:var(--c-red)">任命</div></div>
+        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#7a5a10">GOLD</text></svg><div class="yr">2026</div><div class="ev">澳门世界杯 男单</div><div class="mk" style="color:var(--c-red)">金牌</div></div>
+        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#7a5a10">GOLD</text></svg><div class="yr">2026</div><div class="ev">亚洲杯 男单</div><div class="mk" style="color:var(--c-red)">金牌</div></div>
+        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#7a5a10">GOLD</text></svg><div class="yr">2025</div><div class="ev">多哈世乒赛 男单</div><div class="mk" style="color:var(--c-red)">金牌</div></div>
+        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#7a5a10">GOLD</text></svg><div class="yr">2024</div><div class="ev">巴黎奥运会 混双&团体</div><div class="mk" style="color:var(--c-red)">金牌</div></div>
+        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#7a5a10">GOLD</text></svg><div class="yr">2024</div><div class="ev">WTT多哈总决赛 男单</div><div class="mk" style="color:var(--c-red)">金牌</div></div>
+        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#7a5a10">GOLD</text></svg><div class="yr">2023</div><div class="ev">杭州亚运会 男单</div><div class="mk" style="color:var(--c-red)">金牌</div></div>
+        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#7a5a10">GOLD</text></svg><div class="yr">多次</div><div class="ev">世乒赛 男双/混双</div><div class="mk" style="color:var(--c-red)">金牌</div></div>
+        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#7a5a10">WTT</text></svg><div class="yr">多次</div><div class="ev">WTT 大满贯</div><div class="mk" style="color:var(--c-red)">金牌</div></div>
         <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="16" font-weight="800" fill="#7a5a10">1</text></svg><div class="yr">长期</div><div class="ev">男单世界第一</div><div class="mk" style="color:var(--c-red)">NO.1</div></div>
-        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#7a5a10">WTT</text></svg><div class="yr">多次</div><div class="ev">WTT 大满贯</div><div class="mk" style="color:var(--c-red)">冠军</div></div>
-        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#7a5a10">全</text></svg><div class="yr">多届</div><div class="ev">全锦赛 / 全运会</div><div class="mk" style="color:var(--c-red)">冠军</div></div>
-        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#7a5a10">亚</text></svg><div class="yr">多届</div><div class="ev">亚运会 / 亚锦赛</div><div class="mk" style="color:var(--c-red)">冠军</div></div>
+        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#7a5a10">亚</text></svg><div class="yr">多届</div><div class="ev">亚运会 / 亚锦赛</div><div class="mk" style="color:var(--c-red)">金牌</div></div>
+        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#7a5a10">全</text></svg><div class="yr">多届</div><div class="ev">全锦赛 / 全运会</div><div class="mk" style="color:var(--c-red)">金牌</div></div>
       </div>
       <p class="muted" style="font-size:13px; margin-top:16px;">荣誉信息为公开资料整理，具体届次/项目以中国乒协、国际乒联官方公布为准。</p>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" data-enc-section="h2h" style="display:none;">
     <div class="wrap wrap-narrow">
       <div class="section-head">
-        <div><div class="section-title">最新<span class="accent">动态</span></div><div class="section-line"></div></div>
-        <div class="section-sub"><span class="sample-flag">示例占位</span> 替换为真实动态并注明来源</div>
+        <div><div class="section-title">交手<span class="accent">纪录</span></div><div class="section-line"></div></div>
+        <a class="btn btn-outline btn-sm" href="head-to-head.html">全部对战 →</a>
       </div>
-      <div class="timeline">
-        <div class="tl-item"><div class="tl-date">示例日期</div><div class="tl-title">【示例】近期训练/备赛动态</div><div class="tl-desc">占位内容：介绍选手近期训练与备赛情况。上线前替换为真实动态并注明来源。</div><span class="badge badge-red">动态</span></div>
-        <div class="tl-item"><div class="tl-date">示例日期</div><div class="tl-title">【示例】赛事出征/参赛信息</div><div class="tl-desc">占位内容：介绍选手近期赛事与参赛安排。上线前替换为真实信息并注明来源。</div><span class="badge badge-gold">赛事</span></div>
-        <div class="tl-item"><div class="tl-date">示例日期</div><div class="tl-title">【示例】混双"莎头组合"动态</div><div class="tl-desc">占位内容：与孙颖莎的混双组合相关动态。上线前替换为真实报道并注明来源。</div><span class="badge badge-blue">混双</span></div>
-        <div class="tl-item"><div class="tl-date">示例日期</div><div class="tl-title">【示例】赛后采访/感言</div><div class="tl-desc">占位内容：赛后采访与感言。上线前替换为真实内容并注明来源。</div><span class="badge badge-green">采访</span></div>
-      </div>
+      <div data-render="h2h"></div>
     </div>
   </section>
 
-  <section class="section-tight" style="background: var(--c-bg-alt);">
+  <section class="section" data-enc-section="videos" style="display:none;">
     <div class="wrap">
       <div class="section-head">
         <div><div class="section-title">比赛<span class="accent">视频</span></div><div class="section-line"></div></div>
@@ -133,7 +140,7 @@
         <div><div class="footer-brand">莎头球迷站<span class="dot">·</span></div><p style="margin-top:12px; font-size:14px; color:#cdbfae; max-width:280px;">球迷自发组织的非官方站点，聚焦孙颖莎与王楚钦。尊重版权，所有内容指向官方正规来源。</p></div>
         <div><h4>选手</h4><ul><li><a href="sun-yingsha.html">孙颖莎</a></li><li><a href="wang-chuqin.html">王楚钦</a></li></ul></div>
         <div><h4>内容</h4><ul><li><a href="news.html">资讯</a></li><li><a href="videos.html">视频</a></li><li><a href="forum.html">论坛</a></li></ul></div>
-        <div><h4>关于</h4><ul><li><a href="about.html">版权与声明</a></li><li><a href="about.html#ideas">更新思路</a></li></ul></div>
+        <div><h4>关于</h4><ul><li><a href="about.html">版权与声明</a></li><li><a href="head-to-head.html">交手战绩</a></li></ul></div>
       </div>
       <div class="footer-bottom">
         <div><span class="nonofficial">⚠ 非官方球迷自制站点</span> · 不代表任何运动员/官方机构立场</div>
