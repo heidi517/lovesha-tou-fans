@@ -20,23 +20,32 @@ const PLAYERS = {
     hometown: '河北·石家庄',
     hand: '右手·横板',
     style: '正手进攻型，反手相持稳健，节奏快、杀伤力强',
+    worldRank: 1,
+    worldPoints: 11350,
+    rankPeriod: '连续217周世界第一',
+    rankLead: '领先第2名2485分',
     facts: [
-      { k: '世界排名', v: '女单前列', sub: '长期稳居' },
+      { k: '世界排名', v: '女单第1', sub: '11350分·断层第一' },
       { k: '打法', v: '右手横板', sub: '两面反胶' },
       { k: '籍贯', v: '石家庄', sub: '河北' },
       { k: '招牌', v: '正手爆冲', sub: '小魔王' },
+      { k: '胜率', v: '国际赛超90%', sub: '六边形战士' },
     ],
     honors: [
-      { yr: '2026', ev: 'WTT美国大满贯 女单', mk: 'GOLD' },
-      { yr: '2024', ev: '奥运会 混双 & 团体', mk: 'GOLD' },
-      { yr: '2024', ev: '奥运会 女单', mk: 'SILVER' },
-      { yr: '2021', ev: '奥运会 团体', mk: 'GOLD' },
-      { yr: '2021', ev: '奥运会 女单', mk: 'SILVER' },
-      { yr: '多次', ev: '世乒赛 / 世界杯', mk: '冠军' },
-      { yr: '长期', ev: '女单世界第一', mk: 'NO.1' },
-      { yr: '多次', ev: 'WTT 大满贯', mk: '冠军' },
-      { yr: '多届', ev: '全锦赛 / 全运会', mk: '冠军' },
+      { yr: '2026', ev: '伦敦世乒赛女团冠军·最佳女运动员', mk: 'GOLD' },
+      { yr: '2026', ev: 'WTT新加坡大满贯 女单冠军', mk: 'GOLD' },
+      { yr: '2026', ev: '亚洲杯 女单冠军', mk: 'GOLD' },
+      { yr: '2026', ev: 'WTT美国大满贯 女单冠军(第6座)', mk: 'GOLD' },
+      { yr: '2025', ev: '多哈世乒赛女单冠军·女团冠军', mk: 'GOLD' },
+      { yr: '2025', ev: 'WTT瑞典大满贯 女单冠军', mk: 'GOLD' },
+      { yr: '2024', ev: '巴黎奥运 混双金牌·女团金牌·女单银牌', mk: 'GOLD' },
+      { yr: '2024', ev: '澳门世界杯 女单冠军', mk: 'GOLD' },
+      { yr: '2023', ev: '德班世乒赛女单冠军·杭州亚运四金', mk: 'GOLD' },
+      { yr: '2021', ev: '东京奥运 女团金牌·女单银牌', mk: 'GOLD' },
+      { yr: '2019', ev: '布达佩斯世乒赛 女双冠军', mk: 'GOLD' },
+      { yr: '累计', ev: 'WTT大满贯单打6冠·唯一全满贯', mk: 'NO.1' },
     ],
+    quotes: ['胸前的国旗永远大于背后的姓名', '保持热爱，保持专注', '孙颖莎你皮紧一点'],
   },
   wang: {
     id: 'wang',
@@ -47,24 +56,52 @@ const PLAYERS = {
     hometown: '吉林',
     hand: '左手·横板',
     style: '左手横板两面反胶，发球与正手抢冲突出，单板质量高',
+    worldRank: 1,
+    worldPoints: 9177,
+    rankPeriod: '长期稳居世界第一',
+    rankLead: '领先第2名2227分',
     facts: [
-      { k: '世界排名', v: '男单前列', sub: '长期稳居' },
+      { k: '世界排名', v: '男单第1', sub: '9177分·断层第一' },
       { k: '打法', v: '左手横板', sub: '两面反胶' },
       { k: '籍贯', v: '吉林', sub: '东北' },
-      { k: '身份', v: '男队队长', sub: '2026年起' },
+      { k: '身份', v: '男队队长', sub: '2026年接任' },
+      { k: '胜率', v: '外战胜率97%+', sub: '对阵前十胜率81%' },
     ],
     honors: [
-      { yr: '2026', ev: '国乒男队队长', mk: 'CAPTAIN' },
-      { yr: '2024', ev: '奥运会 混双 & 团体', mk: 'GOLD' },
-      { yr: '2024', ev: '奥运会 男单', mk: '参赛' },
-      { yr: '多次', ev: '世乒赛 男双/混双', mk: '冠军' },
-      { yr: '多次', ev: '世界杯 / WTT', mk: '冠军' },
-      { yr: '长期', ev: '男单世界第一', mk: 'NO.1' },
-      { yr: '多届', ev: '全锦赛 / 全运会', mk: '冠军' },
-      { yr: '多次', ev: 'WTT 大满贯', mk: '冠军' },
-      { yr: '多届', ev: '亚运会 / 亚锦', mk: '冠军' },
+      { yr: '2026', ev: '伦敦世乒赛男团冠军·最佳男运动员', mk: 'GOLD' },
+      { yr: '2026', ev: '澳门世界杯 男单冠军(首个)', mk: 'GOLD' },
+      { yr: '2026', ev: 'WTT新加坡大满贯 男单冠军', mk: 'GOLD' },
+      { yr: '2026', ev: '亚洲杯 男单冠军(卫冕)', mk: 'GOLD' },
+      { yr: '2026', ev: '出任国乒男队队长', mk: 'CAPTAIN' },
+      { yr: '2025', ev: '多哈世乒赛男单冠军·男团冠军', mk: 'GOLD' },
+      { yr: '2025', ev: 'WTT美国大满贯 男单亚军', mk: 'SILVER' },
+      { yr: '2024', ev: '巴黎奥运 混双金牌·男团金牌', mk: 'GOLD' },
+      { yr: '2023', ev: '德班世乒赛男双/混双冠军·杭州亚运四金', mk: 'GOLD' },
+      { yr: '2021', ev: '休斯敦世乒赛 混双冠军', mk: 'GOLD' },
+      { yr: '2018', ev: '青奥会 男单冠军', mk: 'GOLD' },
+      { yr: '累计', ev: '伦敦世乒赛10战全胜·三次独得两分', mk: 'NO.1' },
     ],
+    quotes: ['坚定自信', '我是男队队长，要站出来', '接好马龙的接力棒'],
   },
+};
+
+/* ---------- 世界排名（2026年7月第31周） ---------- */
+const WORLD_RANKINGS = {
+  women: [
+    { rank: 1, name: '孙颖莎', flag: '🇨🇳', points: 11350 },
+    { rank: 2, name: '王曼昱', flag: '🇨🇳', points: 8865 },
+    { rank: 3, name: '张本美和', flag: '🇯🇵', points: 5389 },
+    { rank: 4, name: '蒯曼', flag: '🇨🇳', points: 4963 },
+    { rank: 5, name: '陈幸同', flag: '🇨🇳', points: 4260 },
+  ],
+  men: [
+    { rank: 1, name: '王楚钦', flag: '🇨🇳', points: 9177 },
+    { rank: 2, name: '莫雷加德', flag: '🇸🇪', points: 6950 },
+    { rank: 3, name: '松岛辉空', flag: '🇯🇵', points: 6298 },
+    { rank: 4, name: 'F·勒布伦', flag: '🇫🇷', points: 5779 },
+    { rank: 5, name: '张本智和', flag: '🇯🇵', points: 5313 },
+  ],
+  updated: '2026-07-27 · 第31周',
 };
 
 /* ---------- 首页：最新动态 ---------- */
@@ -84,31 +121,40 @@ const NEWS = [
   { cat: 'domestic', tag: '国内', color: 't-plum', title: '全锦赛双打：王楚钦/孙颖莎混双止步半决赛，马龙/许昕老将合体', excerpt: '本届全锦赛首次将双打单独设为一站，打破省区市组队限制。王楚钦/孙颖莎作为头号种子搭档混双，半决赛2-3不敌袁励岑/王艺迪。马龙/许昕时隔六年再度联手出战男双。', src: '央视体育 / 新华社', date: '2026-07-14', url: 'https://ysxw.cctv.cn/article.html?item_id=11812953281190128643' },
 ];
 
-/* ---------- 比赛视频 · 统一官方源 ---------- */
+/* ---------- 比赛视频 · 按赛事时间线排列（仅比赛·官方源） ---------- */
 const VIDEOS = [
-  { src: '央视体育', color: 't-red', title: 'WTT美国大满贯：孙颖莎女单夺冠集锦', meta: '央视体育 · 官方集锦', url: 'https://sports.cctv.com/', sample: true },
-  { src: '咪咕视频', color: 't-blue', title: '乒乓赛事直播回放', meta: '官方直播 · 正版', url: 'https://www.miguvideo.com/', sample: true },
-  { src: 'WTT 官网', color: 't-gold', title: 'WTT 赛事回放与集锦', meta: 'WTT World · 正版', url: 'https://worldtabletennis.com/', sample: true },
-  { src: 'ITTF 官网', color: 't-dark', title: '国际乒联赛事档案', meta: 'ITTF · 正版', url: 'https://www.ittf.com/', sample: true },
-  { src: '中国乒协', color: 't-green', title: '国内赛事官方报道', meta: '中国乒协 · 正版', url: 'https://www.ctta.cn/', sample: true },
-  /* 专题报道与人物 —— 央视《体坛零距离》系列 */
-  { src: '央视·体坛零距离', color: 't-plum', title: '孙颖莎：全力以赴 继续追梦', meta: '2025-05-29 · 最好的自己', url: 'https://tv.cctv.com/2025/05/29/VIDE4IcWrlw4Qy9aTMUM6rT5250529.shtml' },
-  { src: '央视·体坛零距离', color: 't-plum', title: '王楚钦：男队被质疑，我要站出来', meta: '2026-04-30 · 出征伦敦世乒赛', url: 'https://tv.cctv.cn/2026/04/30/VIDE2b7v4GoZm7aFboWjpcRM260430.shtml' },
-  { src: '央视·体坛零距离', color: 't-plum', title: '王楚钦回应出任男队队长：接好马龙的接力棒', meta: '2026-06-11 · 王皓宣布任命', url: 'https://tv.cctv.cn/' },
+  { src: '咪咕视频', color: 't-gold', title: '乒超联赛 山东魏桥 vs 山东鲁能 王楚钦出战', meta: '2026-07-23 · 乒超常规赛第1站', url: 'https://www.miguvideo.com/', event: 'domestic' },
+  { src: '央视体育', color: 't-red', title: 'WTT美国大满贯：孙颖莎女单决赛 4-3胜蒯曼', meta: '2026-07-06 · 大满贯2000分', url: 'https://sports.cctv.com/', event: 'international' },
+  { src: 'WTT 官网', color: 't-blue', title: 'WTT美国大满贯 男单决赛：松岛辉空夺冠', meta: '2026-07-06 · 大满贯2000分', url: 'https://worldtabletennis.com/', event: 'international' },
+  { src: '央视体育', color: 't-red', title: '伦敦世乒赛女团决赛：中国3-2逆转日本夺冠', meta: '2026-05-10 · 世乒赛团体', url: 'https://sports.cctv.com/', event: 'international' },
+  { src: '央视体育', color: 't-blue', title: '伦敦世乒赛男团决赛：中国3-0日本 12连冠', meta: '2026-05-10 · 世乒赛团体', url: 'https://sports.cctv.com/', event: 'international' },
+  { src: '咪咕视频', color: 't-red', title: '澳门世界杯：王楚钦男单决赛 4-3胜松岛辉空', meta: '2026-04-05 · 世界杯2500分', url: 'https://www.miguvideo.com/', event: 'international' },
+  { src: '央视体育', color: 't-red', title: 'WTT新加坡大满贯：孙颖莎女单决赛 4-2胜王曼昱', meta: '2026-03-14 · 大满贯2000分', url: 'https://sports.cctv.com/', event: 'international' },
+  { src: '央视体育', color: 't-blue', title: 'WTT新加坡大满贯：王楚钦男单决赛 4-0胜林昀儒', meta: '2026-03-14 · 大满贯2000分', url: 'https://sports.cctv.com/', event: 'international' },
+  { src: '央视体育', color: 't-red', title: '亚洲杯：孙颖莎女单决赛 4-3胜王曼昱', meta: '2026-02-23 · 洲际杯1000分', url: 'https://sports.cctv.com/', event: 'international' },
+  { src: '央视体育', color: 't-blue', title: '亚洲杯：王楚钦男单决赛 4-2胜张本智和', meta: '2026-02-23 · 洲际杯1000分', url: 'https://sports.cctv.com/', event: 'international' },
+  { src: '咪咕视频', color: 't-gold', title: 'WTT中国大满贯：孙颖莎女单决赛 2-4负王曼昱', meta: '2025-10 · 大满贯2000分', url: 'https://www.miguvideo.com/', event: 'international' },
+  { src: '央视体育', color: 't-red', title: 'WTT瑞典大满贯：孙颖莎女单决赛 3-0胜早田希娜', meta: '2025-08 · 大满贯2000分', url: 'https://sports.cctv.com/', event: 'international' },
+  { src: '央视体育', color: 't-blue', title: '多哈世乒赛：王楚钦男单夺冠 首夺世乒赛冠军', meta: '2025-05 · 世乒赛单项', url: 'https://sports.cctv.com/', event: 'international' },
+  { src: '央视体育', color: 't-red', title: '多哈世乒赛：孙颖莎女单夺冠 蝉联冠军', meta: '2025-05 · 世乒赛单项', url: 'https://sports.cctv.com/', event: 'international' },
 ];
 
-/* ---------- 赛事日历（2026年下半年） ---------- */
+/* ---------- 赛事日历（2026年下半年·国际+国内） ---------- */
 const CALENDAR = [
-  { date: '2026-08-05', endDate: '2026-08-09', name: 'WTT横滨冠军赛', loc: '日本·横滨', type: '冠军赛', points: 1000, live: [{ name: '央视体育', url: 'https://sports.cctv.com/' }, { name: '咪咕视频', url: 'https://www.miguvideo.com/' }, { name: 'WTT', url: 'https://worldtabletennis.com/' }] },
-  { date: '2026-08-13', endDate: '2026-08-23', name: 'WTT欧洲大满贯', loc: '瑞典·马尔默', type: '大满贯', points: 2000, live: [{ name: '央视体育', url: 'https://sports.cctv.com/' }, { name: '咪咕视频', url: 'https://www.miguvideo.com/' }, { name: 'WTT', url: 'https://worldtabletennis.com/' }] },
-  { date: '2026-09-08', endDate: '2026-09-13', name: 'WTT澳门冠军赛', loc: '中国·澳门', type: '冠军赛', points: 1000, live: [{ name: '央视体育', url: 'https://sports.cctv.com/' }, { name: '咪咕视频', url: 'https://www.miguvideo.com/' }] },
-  { date: '2026-09-20', endDate: '2026-09-28', name: '名古屋亚运会', loc: '日本·名古屋', type: '综合', points: 2000, live: [{ name: '央视体育', url: 'https://sports.cctv.com/' }, { name: '咪咕视频', url: 'https://www.miguvideo.com/' }] },
-  { date: '2026-10-01', endDate: '2026-10-11', name: 'WTT中国大满贯', loc: '中国·北京', type: '大满贯', points: 2000, live: [{ name: '央视体育', url: 'https://sports.cctv.com/' }, { name: '咪咕视频', url: 'https://www.miguvideo.com/' }, { name: 'WTT', url: 'https://worldtabletennis.com/' }] },
-  { date: '2026-10-12', endDate: '2026-10-25', name: '亚锦赛（单项）', loc: '乌兹别克·塔什干', type: '洲际', points: 1000, live: [{ name: '央视体育', url: 'https://sports.cctv.com/' }] },
-  { date: '2026-10-27', endDate: '2026-11-01', name: 'WTT蒙彼利埃冠军赛', loc: '法国·蒙彼利埃', type: '冠军赛', points: 1000, live: [{ name: 'WTT', url: 'https://worldtabletennis.com/' }] },
-  { date: '2026-11-03', endDate: '2026-11-08', name: 'WTT法兰克福冠军赛', loc: '德国·法兰克福', type: '冠军赛', points: 1000, live: [{ name: 'WTT', url: 'https://worldtabletennis.com/' }] },
-  { date: '2026-11-30', endDate: '2026-12-06', name: '混团世界杯', loc: '中国·成都', type: '世界杯', points: 2500, live: [{ name: '央视体育', url: 'https://sports.cctv.com/' }, { name: '咪咕视频', url: 'https://www.miguvideo.com/' }] },
-  { date: '2026-12-08', endDate: '2026-12-13', name: 'WTT总决赛', loc: '中国·香港', type: '年终', points: 2000, live: [{ name: '央视体育', url: 'https://sports.cctv.com/' }, { name: '咪咕视频', url: 'https://www.miguvideo.com/' }, { name: 'WTT', url: 'https://worldtabletennis.com/' }] },
+  { date: '2026-07-23', endDate: '2026-08-01', name: '乒超常规赛(大连/雄安)', loc: '中国·大连&雄安', type: '联赛', points: 0, cat: 'domestic', live: [{ name: '咪咕视频', url: 'https://www.miguvideo.com/' }] },
+  { date: '2026-08-05', endDate: '2026-08-09', name: 'WTT横滨冠军赛', loc: '日本·横滨', type: '冠军赛', points: 1000, cat: 'international', live: [{ name: '央视体育', url: 'https://sports.cctv.com/' }, { name: '咪咕视频', url: 'https://www.miguvideo.com/' }, { name: 'WTT', url: 'https://worldtabletennis.com/' }] },
+  { date: '2026-08-13', endDate: '2026-08-23', name: 'WTT欧洲大满贯', loc: '瑞典·马尔默', type: '大满贯', points: 2000, cat: 'international', live: [{ name: '央视体育', url: 'https://sports.cctv.com/' }, { name: '咪咕视频', url: 'https://www.miguvideo.com/' }, { name: 'WTT', url: 'https://worldtabletennis.com/' }] },
+  { date: '2026-09-08', endDate: '2026-09-13', name: 'WTT澳门冠军赛', loc: '中国·澳门', type: '冠军赛', points: 1000, cat: 'international', live: [{ name: '央视体育', url: 'https://sports.cctv.com/' }, { name: '咪咕视频', url: 'https://www.miguvideo.com/' }] },
+  { date: '2026-09-20', endDate: '2026-09-28', name: '名古屋亚运会', loc: '日本·名古屋', type: '综合', points: 2000, cat: 'international', live: [{ name: '央视体育', url: 'https://sports.cctv.com/' }, { name: '咪咕视频', url: 'https://www.miguvideo.com/' }] },
+  { date: '2026-10-01', endDate: '2026-10-11', name: 'WTT中国大满贯', loc: '中国·北京', type: '大满贯', points: 2000, cat: 'international', live: [{ name: '央视体育', url: 'https://sports.cctv.com/' }, { name: '咪咕视频', url: 'https://www.miguvideo.com/' }] },
+  { date: '2026-10-19', endDate: '2026-10-25', name: '亚锦赛（单项）', loc: '乌兹别克·塔什干', type: '洲际', points: 1000, cat: 'international', live: [{ name: '央视体育', url: 'https://sports.cctv.com/' }] },
+  { date: '2026-10-27', endDate: '2026-11-01', name: 'WTT蒙彼利埃冠军赛', loc: '法国·蒙彼利埃', type: '冠军赛', points: 1000, cat: 'international', live: [{ name: 'WTT', url: 'https://worldtabletennis.com/' }] },
+  { date: '2026-11-03', endDate: '2026-11-08', name: 'WTT法兰克福冠军赛', loc: '德国·法兰克福', type: '冠军赛', points: 1000, cat: 'international', live: [{ name: 'WTT', url: 'https://worldtabletennis.com/' }] },
+  { date: '2026-11-12', endDate: '2026-11-16', name: '乒超常规赛第三站', loc: '待定', type: '联赛', points: 0, cat: 'domestic', live: [{ name: '咪咕视频', url: 'https://www.miguvideo.com/' }] },
+  { date: '2026-11-30', endDate: '2026-12-06', name: '混团世界杯', loc: '中国·成都', type: '世界杯', points: 2500, cat: 'international', live: [{ name: '央视体育', url: 'https://sports.cctv.com/' }, { name: '咪咕视频', url: 'https://www.miguvideo.com/' }] },
+  { date: '2026-12-08', endDate: '2026-12-13', name: 'WTT总决赛', loc: '中国·香港', type: '年终', points: 2000, cat: 'international', live: [{ name: '央视体育', url: 'https://sports.cctv.com/' }, { name: '咪咕视频', url: 'https://www.miguvideo.com/' }] },
+  { date: '2026-12-16', endDate: '2026-12-23', name: '全锦赛团体&单打', loc: '中国·福州', type: '全锦赛', points: 0, cat: 'domestic', live: [{ name: '咪咕视频', url: 'https://www.miguvideo.com/' }] },
+  { date: '2026-12-25', endDate: '2026-12-27', name: '乒超总决赛', loc: '中国·广州', type: '联赛', points: 0, cat: 'domestic', live: [{ name: '咪咕视频', url: 'https://www.miguvideo.com/' }] },
 ];
 
 /* ---------- 直播入口汇总 ---------- */
@@ -118,18 +164,23 @@ const LIVE_STREAMS = [
   { name: 'WTT 官网', desc: '国际赛官方直播', url: 'https://worldtabletennis.com/', icon: 'W' },
 ];
 
-/* ---------- 交手纪录 ---------- */
+/* ---------- 交手纪录（近3年主要对手·2024-2026） ---------- */
 const HEAD_TO_HEAD = {
   sun: [
-    { opp: '王曼昱', total: '21胜13负', rate: 61.8, recent: '近4场各胜2场', desc: '国际赛场累计交手超30次，2023年后孙颖莎总战绩占优。两人近10次单打全部在决赛相遇，女子乒坛最强双子星对决。', highlights: ['2024澳门世界杯决赛 4-3胜', '2025中国大满贯决赛 2-4负', '2026亚洲杯决赛 4-3胜', '2026新加坡大满贯决赛 4-2胜'] },
-    { opp: '陈梦', total: '11胜7负', rate: 61.1, recent: '2022年后孙颖莎占绝对优势', desc: '国际赛场约18次交手，东京奥运会后孙颖莎快速成长，2023年至今对阵陈梦胜绩占绝对优势。但奥运决赛两度惜败。', highlights: ['2020世界杯决赛 1-4负', '2021东京奥运决赛 2-4负', '2023德班世乒赛决赛 4-2胜', '2024巴黎奥运决赛 2-4负'] },
-    { opp: '早田希娜', total: '19胜0负', rate: 100, recent: '12年全胜，堪称克星', desc: '从2014年亚青赛到2026年伦敦世乒赛，12年间19次交锋全胜，其中12场3-0或4-0零封。早田自认"赢面接近零"。', highlights: ['2024巴黎奥运半决赛 4-0胜', '2025瑞典大满贯 3-0胜', '2026新加坡大满贯 4-2胜', '2026伦敦世乒赛 3-0胜'] },
-    { opp: '王艺迪', total: '13胜4负', rate: 76.5, recent: '稳定占优', desc: '国内赛场多次交手，孙颖莎综合实力明显占优。', highlights: [] },
-    { opp: '陈幸同', total: '10胜4负', rate: 71.4, recent: '优势明显', desc: '同为新生代顶尖选手，孙颖莎整体交手战绩领先。', highlights: [] },
+    { opp: '王曼昱', total: '21胜13负', rate: 61.8, recent: '近4场各胜2场，五五开', desc: '女子乒坛最强双子星对决。近10次单打全部在决赛相遇，2026亚洲杯4-3险胜、新加坡大满贯4-2胜，但中国大满贯2-4负、澳门世界杯决赛负。两人互为最大对手。', highlights: ['2026亚洲杯决赛 4-3胜', '2026新加坡大满贯决赛 4-2胜', '2026澳门世界杯决赛 负', '2025中国大满贯决赛 2-4负'] },
+    { opp: '张本美和', total: '8胜1负', rate: 88.9, recent: '2024年后7连胜', desc: '日本女乒新一姐，18岁世界第三。2024亚锦赛唯一一败（体力透支2-3负），此后7战全胜。2026伦敦世乒赛女团决赛3-0零封（三局仅让对手拿12分），堪称经典。', highlights: ['2026伦敦世乒赛女团 3-0胜(11-2/11-4/11-6)', '2025亚洲杯 3-0胜', '2025亚锦赛女团 3-0胜', '2024亚锦赛女团 2-3负(唯一败绩)'] },
+    { opp: '早田希娜', total: '19胜0负', rate: 100, recent: '12年全胜，堪称克星', desc: '从2014年亚青赛到2026年伦敦世乒赛，12年19次交锋全胜。其中12场3-0或4-0零封。早田自评"赢面接近零"。', highlights: ['2026伦敦世乒赛女团 3-0胜', '2026新加坡大满贯 4-2胜', '2024巴黎奥运半决赛 4-0胜'] },
+    { opp: '陈梦', total: '11胜7负', rate: 61.1, recent: '自2023年后孙颖莎明显占优', desc: '奥运决赛两度惜败（东京2-4、巴黎2-4），但2023德班世乒赛4-2获胜完成突破。随陈梦淡出国家队，近年交手减少。', highlights: ['2024巴黎奥运决赛 2-4负', '2023德班世乒赛决赛 4-2胜', '2021东京奥运决赛 2-4负'] },
+    { opp: '早田希娜以外的日本新星', total: '全胜', rate: 100, recent: '面对日本女乒六代主力全胜', desc: '对阵桥本帆乃香（1胜0负）、大藤沙月（3胜0负）、佐藤瞳（2胜0负）、伊藤美诚（11胜0负）、长崎美柚（4胜0负），日本女乒六代主力全部被封锁。', highlights: ['对阵日本女乒六代: 胜率100%', '2025横滨冠军赛 3-1胜桥本帆乃香'] },
   ],
   wang: [
-    { opp: '樊振东', total: '8胜26负', rate: 23.5, recent: '2024年后差距缩小，各胜2场', desc: '国乒男单两代领军人物的经典对决。樊振东长期占据绝对优势，但近两年王楚钦逐渐缩小差距，2026年大满贯赛4-3逆转获胜是里程碑。', highlights: ['2023杭州亚运会决赛 4-3胜', '2024多哈总决赛 4-0胜', '2025全运会半决赛 2-4负', '2026大满贯赛 4-3胜'] },
-    { opp: '张本智和', total: '17胜3负', rate: 85.0, recent: '近10场9胜1负', desc: '中日男单一哥的经典对位。王楚钦在绝大部分交锋中占据上风，8连胜后被张本在横滨终结，但2026亚洲杯决赛再次证明实力。', highlights: ['2024福冈总决赛 4-0胜', '2025美国大满贯决赛 4-0胜', '2025横滨冠军赛决赛 2-4负', '2026亚洲杯决赛 4-2胜'] },
+    { opp: '莫雷加德', total: '12胜2负', rate: 85.7, recent: '巴黎奥运后全胜', desc: '瑞典天才、奥运亚军、现世界第2。巴黎奥运32强那场是王楚钦球拍出问题输的——之后莫雷加德再也没赢过。2025横滨冠军赛4-0横扫（第三局曾10-0），2025世乒赛半决赛4-1逆转完成心理救赎。', highlights: ['2025横滨冠军赛 4-0胜(第三局10-0)', '2025多哈世乒赛半决赛 4-1胜', '2024巴黎奥运32强 2-4负(球拍问题)'] },
+    { opp: '松岛辉空', total: '5胜2负', rate: 71.4, recent: '近期互有胜负·头号刺客', desc: '19岁日本新星，现世界第3，王楚钦最难缠的对手之一。2025亚锦赛首败(2-3)，2026重庆冠军赛再败(2-4)。但在2026澳门世界杯决赛4-3绝境逆转夺冠，证明实力。近三次交手松岛两胜。', highlights: ['2026澳门世界杯决赛 4-3胜(生死战)', '2026重庆冠军赛 2-4负', '2026伦敦世乒赛男团 3-1胜', '2025亚锦赛 2-3负(首败)'] },
+    { opp: '张本智和', total: '14胜3负', rate: 82.4, recent: '近10场9胜1负', desc: '中日男单一哥对决。王楚钦绝大多数交锋占优，2026亚洲杯决赛4-2胜完成卫冕，此前一度8连胜。', highlights: ['2026亚洲杯决赛 4-2胜', '2025美国大满贯决赛 4-0胜', '2025横滨冠军赛决赛 2-4负'] },
+    { opp: 'F·勒布伦（小布）', total: '7胜0负', rate: 100, recent: '全胜·堪称克星', desc: '法国天才少年，现世界第4。"八败之交"——七战七败，从险胜到碾压，小勒布伦赛后曾崩溃落泪。2026新加坡大满贯4-1、澳门世界杯4-2、伦敦世乒赛再胜，完全锁死近台打法。', highlights: ['2026伦敦世乒赛男团 3-1胜', '2026澳门世界杯1/8决赛 4-2胜', '2026新加坡大满贯半决赛 4-1胜', '2025中国大满贯决赛 4-0胜'] },
+    { opp: 'A·勒布伦（大布）', total: '3胜0负', rate: 100, recent: '全胜·较少交手', desc: '勒布伦兄弟之兄，现世界第10，刚重返前十。力量型打法但面对王楚钦完全落下风。2026年美国大满贯后排名上升，值得持续关注。', highlights: ['目前3次交手全胜', '现世界第10·2026年重返前十'] },
+    { opp: '林昀儒', total: '11胜3负', rate: 78.6, recent: '全面压制', desc: '中国台北一哥，左手将。近年来王楚钦持续压制，2026新加坡大满贯决赛4-0横扫最为经典，近两年三战4-0。', highlights: ['2026新加坡大满贯决赛 4-0胜', '历史交手14次 11胜3负'] },
+    { opp: '樊振东', total: '8胜26负', rate: 23.5, recent: '2024年后几乎无交手', desc: '国乒两代领军人物的经典对决。樊振东长期占绝对优势，但近年已淡出国际赛场。关注度降低，建议后置展示。', highlights: ['2023杭州亚运会决赛 4-3胜', '已退役/淡出国际赛场'] },
   ],
 };
 
@@ -153,10 +204,63 @@ const CAREER_TIMELINE = {
 
 /* ---------- 精选墙（首页·每周手动更新） ---------- */
 const FEATURED = [
-  { tag: '必看', color: 't-red', title: '央视《体坛零距离》：王楚钦回应出任男队队长', desc: '接好马龙的接力棒——王楚钦首谈队长身份。', url: 'https://tv.cctv.cn/' },
-  { tag: '深度', color: 't-blue', title: '孙颖莎美国大满贯七局夺冠全复盘', desc: '第六局浪费三赛点后决胜局11-4锁定，第六座大满贯入账。', url: 'https://www.olympics.com/zh/news/2026-us-smash-sun-yingsha-edges-kuaiman-seven-game-thriller-clinch-title-china-three-crowns' },
-  { tag: '赛程', color: 't-gold', title: '2026下半年赛事日历：亚运会+三大满贯+世界杯', desc: '8月至12月密集赛程全览，横滨/瑞典/澳门/名古屋/北京一站不落。', url: '#calendar' },
-  { tag: '回顾', color: 't-green', title: '莎头组合·混双经典战役回顾', desc: '从东京到巴黎，那些年我们一起追过的"莎头"混双。', url: 'forum.html' },
+  { tag: '排名', color: 't-red', title: '7月27日世界排名：孙颖莎11350分断层第一，王楚钦9177分领跑', desc: '国际乒联第31周排名出炉。孙颖莎连续217周霸榜，唯一破万分选手。', url: '#rankings' },
+  { tag: '进行中', color: 't-blue', title: '乒超联赛火热进行中：莎头双双出战', desc: '7月23日起大连&雄安两站背靠背，王楚钦代表山东魏桥，孙颖莎留守深圳大学。', url: '#calendar' },
+  { tag: '必看', color: 't-gold', title: '伦敦世乒赛全回顾：莎头包揽最佳运动员', desc: '女团3-2惊天逆转日本、男团12连冠。王楚钦10战全胜·孙颖莎独得两分。', url: 'https://sports.cctv.com/' },
+  { tag: '数据', color: 't-green', title: '王楚钦对阵世界前十胜率一览', desc: 'vs小勒布伦7-0全胜、vs莫雷加德12-2、vs张本智和14-3...一人打穿乒坛。', url: 'head-to-head.html' },
+];
+
+/* ---------- 商务代言 ---------- */
+const ENDORSEMENTS = {
+  sun: [
+    { brand: 'OLAY', role: '品牌代言人', date: '2024.09', cat: '美妆', url: 'https://www.olay.com.cn/', info: 'OLAY官方商城' },
+    { brand: '肯德基', role: '品牌代言人', date: '2024.11', cat: '餐饮', url: 'https://www.kfc.com.cn/', info: '肯德基中国' },
+    { brand: '半亩花田', role: '全球品牌代言人(洗护发)', date: '2025.01', cat: '日化', url: 'https://www.banmuhuatian.com/', info: '半亩花田官方' },
+    { brand: '高露洁', role: '品牌代言人', date: '2025.02', cat: '日化', url: 'https://www.colgate.com.cn/', info: '高露洁中国' },
+    { brand: 'OPPO', role: '智能生态全球合作伙伴', date: '2025.03', cat: '3C', url: 'https://www.oppo.com/cn/', info: 'OPPO官网' },
+    { brand: '碧然德', role: '品牌代言人', date: '2025.04', cat: '家电', url: 'https://www.brita.cn/', info: '碧然德中国' },
+    { brand: '雀巢', role: '品牌代言人(饼干/糖巧)', date: '2025.05', cat: '食品', url: 'https://www.nestle.com.cn/', info: '雀巢中国' },
+    { brand: '妮维雅', role: '品牌代言人', date: '2025.05', cat: '美妆', url: 'https://www.nivea.com.cn/', info: '妮维雅中国' },
+    { brand: '马吉拉香氛', role: '品牌代言人', date: '2025.06', cat: '奢侈', url: 'https://www.maisonmargiela.com/', info: 'Maison Margiela' },
+    { brand: '美团', role: '美味生活代言人', date: '2025.07', cat: '互联网', url: 'https://www.meituan.com/', info: '美团App' },
+    { brand: '维达', role: '全球品牌代言人', date: '2025.08', cat: '日化', url: 'https://www.vinda.com/', info: '维达官方' },
+    { brand: '全棉时代', role: '全球品牌代言人', date: '2025.09', cat: '日化', url: 'https://www.purcotton.com/', info: '全棉时代官方' },
+    { brand: '联合利华', role: '身体清洁代言人', date: '2025.09', cat: '日化', url: 'https://www.unilever.com.cn/', info: '联合利华中国' },
+    { brand: 'Keep', role: '品牌代言人', date: '2025.10', cat: '运动', url: 'https://www.keep.com/', info: 'Keep App' },
+    { brand: '鸭鸭', role: '全球品牌代言人', date: '2025.11', cat: '服装', url: 'https://www.yaya.cn/', info: '鸭鸭官方' },
+    { brand: '冠益乳', role: '亚太区品牌代言人', date: '2025.12', cat: '食品', url: 'https://www.mengniu.com.cn/', info: '蒙牛集团' },
+    { brand: '蒙牛', role: '品牌代言人(全线)', date: '2026.03', cat: '食品', url: 'https://www.mengniu.com.cn/', info: '蒙牛集团·首位乒乓球代言人' },
+    { brand: '白象', role: '品牌代言人', date: '2026.04', cat: '食品', url: 'https://www.baixiangfood.com/', info: '白象食品' },
+    { brand: '可口可乐', role: '宝洁奥运大使', date: '2024', cat: '饮品', url: 'https://www.coca-cola.com.cn/', info: '可口可乐中国' },
+    { brand: '李宁', role: '品牌代言人', date: '长期', cat: '运动', url: 'https://www.lining.com/', info: '李宁官方商城' },
+  ],
+  wang: [
+    { brand: '路易威登', role: '品牌大使', date: '2025.02', cat: '奢侈', url: 'https://www.louisvuitton.cn/', info: 'LV中国官网' },
+    { brand: 'Nespresso', role: '奈斯派索品牌大使', date: '2025.02', cat: '饮品', url: 'https://www.nespresso.com/cn/zh/', info: 'Nespresso中国' },
+    { brand: '舒肤佳', role: '品牌全线代言人', date: '2025.04', cat: '日化', url: 'https://www.safeguard.com.cn/', info: '舒肤佳官方' },
+    { brand: 'Qeelin', role: '全球品牌代言人', date: '2025.05', cat: '奢侈', url: 'https://www.qeelin.com/', info: 'Qeelin麒麟珠宝' },
+    { brand: 'Mistine', role: '全球防晒代言人', date: '2025.07', cat: '美妆', url: 'https://www.mistine.cn/', info: 'Mistine中国' },
+    { brand: '清扬', role: '品牌代言人', date: '2025.08', cat: '日化', url: 'https://www.clearhair.cn/', info: '清扬官方' },
+    { brand: '梅赛德斯-奔驰', role: '品牌新锐大使', date: '2025.09', cat: '汽车', url: 'https://www.mercedes-benz.com.cn/', info: '奔驰中国官网' },
+    { brand: '薇诺娜', role: '亚太区品牌代言人', date: '2026.02', cat: '美妆', url: 'https://www.winona.com/', info: '薇诺娜官方' },
+    { brand: '欧珑', role: '全球品牌代言人', date: '2026.03', cat: '奢侈', url: 'https://www.ateliercologne.com/', info: 'Atelier Cologne' },
+    { brand: 'Oakley', role: 'Team Oakley成员', date: '2015.06', cat: '运动', url: 'https://www.oakley.com.cn/', info: 'Oakley中国' },
+    { brand: '可口可乐', role: '宝洁奥运大使', date: '2024', cat: '饮品', url: 'https://www.coca-cola.com.cn/', info: '可口可乐中国' },
+    { brand: '李宁', role: '品牌代言人', date: '长期', cat: '运动', url: 'https://www.lining.com/', info: '李宁官方商城' },
+  ],
+};
+
+/* ---------- 莎头经典语录 ---------- */
+const QUOTES = [
+  { text: '胸前的国旗永远大于背后的姓名', from: '孙颖莎', ctx: '国家队精神' },
+  { text: '保持热爱，保持专注', from: '孙颖莎', ctx: '赛后采访' },
+  { text: '孙颖莎你皮紧一点', from: '场边教练', ctx: '训练场名场面' },
+  { text: '坚定自信', from: '王楚钦', ctx: '赛场信念' },
+  { text: '我是男队队长，要站出来', from: '王楚钦', ctx: '2026年出任队长后' },
+  { text: '接好马龙的接力棒', from: '王楚钦', ctx: '回应出任男队队长' },
+  { text: '我们是一起长大的', from: '孙颖莎', ctx: '谈与王楚钦的搭档' },
+  { text: '人生能有几回搏', from: '容国团', ctx: '国乒精神传承' },
+  { text: '每一场比赛都当作最后一场来打', from: '孙颖莎', ctx: '比赛态度' },
 ];
 
 /* ---------- 赛事档案馆（结构化赛果） ---------- */

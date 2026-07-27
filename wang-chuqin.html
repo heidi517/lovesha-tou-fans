@@ -48,14 +48,17 @@
           </div>
         </div>
       </div>
-      <div class="fact-grid">
-        <div class="fact"><div class="k">出生</div><div class="v">2000<small>.05.11</small></div></div>
-        <div class="fact"><div class="k">籍贯</div><div class="v">吉林</div></div>
-        <div class="fact"><div class="k">世界排名</div><div class="v">男单<small>第1位</small></div></div>
-        <div class="fact"><div class="k">身份</div><div class="v">队长<small>2026年起</small></div></div>
-      </div>
+      <div class="fact-grid" data-render="facts"></div>
     </div>
   </header>
+
+  <!-- 莎头语录 -->
+  <div class="quote-strip" data-render="quotes"></div>
+
+  <!-- 世界排名 -->
+  <section class="section-tight">
+    <div class="wrap" data-render="ranking"></div>
+  </section>
 
   <section class="section-tight">
     <div class="wrap">
@@ -84,20 +87,7 @@
         <div><div class="section-title">冠军<span class="accent">荣誉墙</span></div><div class="section-line"></div></div>
         <div class="section-sub">主要成就概览（公开资料 · 以官方为准）</div>
       </div>
-      <div class="achievements">
-        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="10" font-weight="800" fill="#7a5a10">CAPTAIN</text></svg><div class="yr">2026</div><div class="ev">国乒男队队长</div><div class="mk" style="color:var(--c-red)">任命</div></div>
-        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#7a5a10">GOLD</text></svg><div class="yr">2026</div><div class="ev">澳门世界杯 男单</div><div class="mk" style="color:var(--c-red)">金牌</div></div>
-        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#7a5a10">GOLD</text></svg><div class="yr">2026</div><div class="ev">亚洲杯 男单</div><div class="mk" style="color:var(--c-red)">金牌</div></div>
-        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#7a5a10">GOLD</text></svg><div class="yr">2025</div><div class="ev">多哈世乒赛 男单</div><div class="mk" style="color:var(--c-red)">金牌</div></div>
-        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#7a5a10">GOLD</text></svg><div class="yr">2024</div><div class="ev">巴黎奥运会 混双&团体</div><div class="mk" style="color:var(--c-red)">金牌</div></div>
-        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#7a5a10">GOLD</text></svg><div class="yr">2024</div><div class="ev">WTT多哈总决赛 男单</div><div class="mk" style="color:var(--c-red)">金牌</div></div>
-        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#7a5a10">GOLD</text></svg><div class="yr">2023</div><div class="ev">杭州亚运会 男单</div><div class="mk" style="color:var(--c-red)">金牌</div></div>
-        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#7a5a10">GOLD</text></svg><div class="yr">多次</div><div class="ev">世乒赛 男双/混双</div><div class="mk" style="color:var(--c-red)">金牌</div></div>
-        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#7a5a10">WTT</text></svg><div class="yr">多次</div><div class="ev">WTT 大满贯</div><div class="mk" style="color:var(--c-red)">金牌</div></div>
-        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="16" font-weight="800" fill="#7a5a10">1</text></svg><div class="yr">长期</div><div class="ev">男单世界第一</div><div class="mk" style="color:var(--c-red)">NO.1</div></div>
-        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#7a5a10">亚</text></svg><div class="yr">多届</div><div class="ev">亚运会 / 亚锦赛</div><div class="mk" style="color:var(--c-red)">金牌</div></div>
-        <div class="ach"><svg class="medal" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#F0D080" stroke="#B8902A" stroke-width="2"/><text x="22" y="28" text-anchor="middle" font-size="13" font-weight="800" fill="#7a5a10">全</text></svg><div class="yr">多届</div><div class="ev">全锦赛 / 全运会</div><div class="mk" style="color:var(--c-red)">金牌</div></div>
-      </div>
+      <div class="achievements" data-render="honors"></div>
       <p class="muted" style="font-size:13px; margin-top:16px;">荣誉信息为公开资料整理，具体届次/项目以中国乒协、国际乒联官方公布为准。</p>
     </div>
   </section>
@@ -128,10 +118,14 @@
   <section class="section">
     <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; background: linear-gradient(160deg,#fff,#FFF7EC); border:1px solid var(--c-line); border-radius:16px; padding:28px 30px;">
       <div>
-        <div style="font-family:var(--ff-display); font-size:22px; font-weight:800;">来球迷论坛聊聊大头</div>
-        <p class="muted" style="margin-top:6px;">应援、技术、赛事讨论，和喜欢他的球迷一起看球。</p>
+        <div style="font-family:var(--ff-display); font-size:22px; font-weight:800;">更多精彩内容</div>
+        <p class="muted" style="margin-top:6px;">商务代言 · 交手纪录 · 赛事档案 · 球迷论坛</p>
       </div>
-      <a class="btn btn-primary" href="forum.html">进入论坛 →</a>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="btn btn-outline" href="endorsements.html">商务代言 →</a>
+        <a class="btn btn-outline" href="head-to-head.html">交手纪录 →</a>
+        <a class="btn btn-outline" href="tournament.html">赛事档案 →</a>
+        <a class="btn btn-primary" href="forum.html">球迷论坛 →</a>
     </div>
   </section>
 

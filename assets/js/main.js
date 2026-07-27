@@ -410,6 +410,148 @@
     + `<div class="archive-disclaimer"><span>📋</span><div><b>数据说明：</b>本档案整理自公开赛事结果，以官方公布为准。部分早期赛事成绩标注"待补充"，欢迎通过论坛提供信息。标注"以官方为准"的项目请在 ITTF/WTT 官网核实。</div></div>`;
   }
 
+  /* ---------- 选手荣誉墙（动态渲染） ---------- */
+  function renderHonors() {
+    const box = $('[data-render="honors"]');
+    if (!box) return;
+    const playerKey = document.body.dataset.player;
+    if (!playerKey || !PLAYERS || !PLAYERS[playerKey]) return;
+    const honors = PLAYERS[playerKey].honors || [];
+    if (!honors.length) return;
+    const medalIcon = (mk) => {
+      if (mk === 'GOLD') return '<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#D4AF37" stroke="#B8942E" stroke-width="1.5"/><text x="12" y="17" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">1</text></svg>';
+      if (mk === 'SILVER') return '<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#A8A8A8" stroke="#888" stroke-width="1.5"/><text x="12" y="17" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">2</text></svg>';
+      if (mk === 'CAPTAIN') return '<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#C8102E" stroke="#9B0E22" stroke-width="1.5"/><text x="12" y="17" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold">C</text></svg>';
+      return '<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#D4AF37" stroke="#B8942E" stroke-width="1.5"/><text x="12" y="17" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">★</text></svg>';
+    };
+    box.innerHTML = honors.map(h => `
+      <div class="ach">
+        <div class="ach-medal">${medalIcon(h.mk)}</div>
+        <div class="ach-yr">${esc(h.yr)}</div>
+        <div class="ach-ev">${esc(h.ev)}</div>
+      </div>`).join('');
+  }
+
+  /* ---------- 选手资料卡（动态渲染·替换硬编码） ---------- */
+  function renderFacts() {
+    const box = $('[data-render="facts"]');
+    if (!box) return;
+    const playerKey = document.body.dataset.player;
+    if (!playerKey || !PLAYERS || !PLAYERS[playerKey]) return;
+    const facts = PLAYERS[playerKey].facts || [];
+    if (!facts.length) return;
+    box.innerHTML = facts.map(f => `
+      <div class="fact">
+        <div class="fact-k">${esc(f.k)}</div>
+        <div class="fact-v">${esc(f.v)}</div>
+        <div class="fact-sub">${esc(f.sub)}</div>
+      </div>`).join('');
+  }
+
+  /* ---------- 莎头语录条 ---------- */
+  function renderQuotes() {
+    const box = $('[data-render="quotes"]');
+    if (!box) return;
+    if (typeof QUOTES === 'undefined' || !QUOTES.length) return;
+    const duped = [...QUOTES, ...QUOTES]; // 双份实现无缝滚动
+    box.innerHTML = `
+      <div class="q-track">
+        ${duped.map(q => `
+          <div class="q-item">
+            <span class="q-text">"${esc(q.text)}"</span>
+            <span class="q-from">—— ${esc(q.from)}</span>
+          </div>`).join('')}
+      </div>`;
+  }
+
+  /* ---------- 世界排名快照 ---------- */
+  function renderRankingCard() {
+    const box = $('[data-render="ranking"]');
+    if (!box) return;
+    if (typeof WORLD_RANKINGS === 'undefined') return;
+    const renderTable = (data, title) => `
+      <div class="rank-snapshot">
+        <div class="rank-snapshot-title">${title}</div>
+        <table class="ranking-table">
+          <thead><tr><th>#</th><th>选手</th><th>积分</th></tr></thead>
+          <tbody>
+            ${data.map(r => `
+              <tr${r.rank <= 3 ? ' class="podium"' : ''}>
+                <td><span class="rank-num r${r.rank}">${r.rank}</span></td>
+                <td>${esc(r.flag)} ${esc(r.name)}</td>
+                <td>${r.points.toLocaleString()}</td>
+              </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>`;
+    box.innerHTML = `
+      <div class="ranking-hero">
+        <div class="ranking-hero-title">世界排名</div>
+        <div class="ranking-hero-updated">${esc(WORLD_RANKINGS.updated)}</div>
+      </div>
+      <div class="ranking-grid">
+        ${renderTable(WORLD_RANKINGS.women, '女单 TOP5')}
+        ${renderTable(WORLD_RANKINGS.men, '男单 TOP5')}
+      </div>`;
+  }
+
+  /* ---------- 商务代言渲染 ---------- */
+  function renderEndorsements() {
+    const boxes = $$('[data-render="endorse"]');
+    if (!boxes.length) return;
+    if (typeof ENDORSEMENTS === 'undefined') return;
+    const catIcons = { '美妆': '💄', '餐饮': '🍔', '日化': '🧴', '3C': '📱', '家电': '🏠', '食品': '🍜', '奢侈': '💎', '互联网': '🌐', '运动': '🏃', '服装': '👕', '饮品': '🥤', '汽车': '🚗' };
+    boxes.forEach(box => {
+      const playerKey = box.dataset.endorsePlayer || document.body.dataset.endorsePlayer;
+      const list = playerKey ? (ENDORSEMENTS[playerKey] || []) : [...(ENDORSEMENTS.sun || []), ...(ENDORSEMENTS.wang || [])];
+      if (!list.length) return;
+      box.innerHTML = list.map(e => `
+        <a class="endorse-card" href="${esc(e.url)}" target="_blank" rel="noopener nofollow">
+          <div class="ed-icon ${e.cat === '奢侈' ? 'ed-lux' : e.cat === '运动' ? 'ed-sport' : e.cat === '汽车' ? 'ed-car' : 'ed-normal'}">${catIcons[e.cat] || '⭐'}</div>
+          <div class="ed-brand">${esc(e.brand)}</div>
+          <div class="ed-role">${esc(e.role)}</div>
+          <div class="ed-date">${esc(e.date)} · ${esc(e.cat)}</div>
+          <div class="ed-link">查看详情 →</div>
+        </a>`).join('');
+    });
+  }
+
+  /* ---------- 视频筛选 ---------- */
+  function initVideoFilter() {
+    const bar = $('.video-filter-bar');
+    if (!bar) return;
+    const chips = $$('.vf-chip[data-vf]', bar);
+    const box = $('[data-render="videos"]');
+    if (!chips.length || !box) return;
+
+    const allVideos = typeof VIDEOS !== 'undefined' ? VIDEOS : [];
+    const paint = (list) => {
+      box.innerHTML = list.map((v) => {
+        const flag = v.sample ? '<span class="sample-flag">示例</span>' : '';
+        return `
+          <a class="video-card" href="${esc(v.url)}" target="_blank" rel="noopener nofollow">
+            <div class="video-thumb ${v.color}">
+              <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+              <span class="src">${esc(v.src)}</span>
+            </div>
+            <div class="video-body">
+              <div class="video-title">${flag}${esc(v.title)}</div>
+              <div class="video-meta"><span>${esc(v.meta)}</span><span>·</span><span>正版来源</span></div>
+            </div>
+          </a>`;
+      }).join('');
+    };
+
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        const f = chip.dataset.vf;
+        paint(f === 'all' ? allVideos : allVideos.filter(v => v.event === f));
+      });
+    });
+  }
+
   /* ---------- 心声墙 ---------- */
   function initMessageWall() {
     const wall = $('[data-msgwall="wall"]');
@@ -535,6 +677,12 @@
     initMessageWall();
     initForumTabs();
     renderTournamentArchive();
+    renderHonors();
+    renderFacts();
+    renderQuotes();
+    renderRankingCard();
+    renderEndorsements();
+    initVideoFilter();
     // 选手页自动渲染生涯时间线
     const pagePlayer = document.body.dataset.player;
     if ($('[data-render="career"]') && pagePlayer) {

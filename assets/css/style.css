@@ -137,6 +137,25 @@ ul,ol { list-style: none; }
 .hero-stat .num { font-family:var(--ff-display); font-size:28px; font-weight:800; color:var(--c-gold-light); }
 .hero-stat .lbl { font-size:13px; color: rgba(255,245,230,.7); }
 
+/* Hero 排名快览卡片 */
+.hero-rank-row { display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-top:28px; }
+.hero-rank-mini {
+  display:flex; align-items:center; gap:14px; padding:16px 18px; border-radius:14px;
+  border:1px solid rgba(255,255,255,.18); background:rgba(255,255,255,.06);
+  backdrop-filter:blur(8px); transition:transform .18s,background .18s;
+}
+.hero-rank-mini:hover { background:rgba(255,255,255,.12); transform:translateY(-2px); }
+.hero-rank-mini .hrm-mark {
+  width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center;
+  font-family:var(--ff-display); font-size:26px; font-weight:900; color:#fff; flex:none;
+}
+.hr-sun .hrm-mark { background:linear-gradient(135deg,#E63946,#9B0E22); }
+.hr-wang .hrm-mark { background:linear-gradient(135deg,#2C6FB8,#143A6B); }
+.hero-rank-mini .hrm-name { font-size:17px; font-weight:800; color:#fff; }
+.hero-rank-mini .hrm-rank { font-size:13px; color:var(--c-gold-light); margin-top:4px; }
+.hero-rank-mini .hrm-num { font-family:var(--ff-display); font-size:20px; font-weight:900; color:var(--c-gold); vertical-align:-1px; }
+.hero-rank-mini .hrm-streak { font-size:12px; color:rgba(255,245,230,.65); margin-top:3px; }
+
 /* hero 右侧图形：SVG 乒乓球/球拍抽象 */
 .hero-art { position:relative; display:flex; justify-content:center; }
 .hero-art svg { width:100%; max-width:420px; filter: drop-shadow(0 20px 40px rgba(0,0,0,.4)); }
@@ -634,10 +653,62 @@ ul,ol { list-style: none; }
 }
 .mustread ol li b { color:var(--c-ink); }
 
+/* ---------- 世界排名卡片 ---------- */
+.ranking-hero { display:flex; gap:20px; flex-wrap:wrap; align-items:flex-end; margin-bottom:20px; }
+.ranking-hero-title { font-family:var(--ff-display); font-size:28px; font-weight:900; color:var(--c-ink); }
+.ranking-hero-updated { font-size:12px; color:var(--c-ink-mute); }
+.ranking-grid { display:grid; grid-template-columns: repeat(2,1fr); gap:16px; }
+.rank-snapshot { background:var(--c-surface); border:1px solid var(--c-line); border-radius:14px; padding:16px 20px; }
+.rank-snapshot-title { font-size:14px; font-weight:800; margin-bottom:10px; color:var(--c-ink); border-bottom:1px solid var(--c-line); padding-bottom:8px; }
+.ranking-table { width:100%; border-collapse:collapse; font-size:13px; }
+.ranking-table th, .ranking-table td { padding:7px 10px; text-align:left; border-bottom:1px solid var(--c-line); }
+.ranking-table th { color:var(--c-ink-mute); font-weight:600; font-size:11px; text-transform:uppercase; }
+.ranking-table .podium { background:var(--c-gold-soft); font-weight:700; }
+.rank-num { display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; font-size:12px; font-weight:800; color:#fff; background:#948A82; }
+.rank-num.r1 { background:var(--c-gold); color:#5a4010; }
+.rank-num.r2 { background:#A8A8A8; }
+.rank-num.r3 { background:#CD7F32; }
+
+/* ---------- 语录飘条 ---------- */
+.quote-strip { background:linear-gradient(160deg, var(--c-red-dark), var(--c-red)); color:#fff; padding:14px 0; text-align:center; font-size:15px; font-weight:600; letter-spacing:.5px; overflow:hidden; position:relative; }
+.quote-strip .q-track { display:flex; gap:60px; animation:quoteScroll 35s linear infinite; white-space:nowrap; }
+.quote-strip .q-item { display:inline-flex; align-items:center; gap:6px; }
+.quote-strip .q-text { opacity:.95; }
+.quote-strip .q-from { font-size:11px; opacity:.7; }
+@keyframes quoteScroll { 0% { transform:translateX(0); } 100% { transform:translateX(-50%); } }
+
+/* ---------- 视频筛选 ---------- */
+.video-filter-bar { display:flex; gap:8px; margin-bottom:20px; flex-wrap:wrap; }
+.vf-chip { padding:6px 16px; border-radius:20px; font-size:13px; cursor:pointer; border:1px solid var(--c-line); background:var(--c-surface); color:var(--c-ink-soft); transition:all .18s; }
+.vf-chip:hover, .vf-chip.active { background:var(--c-red); color:#fff; border-color:var(--c-red); }
+
+/* ---------- 商务代言 ---------- */
+.endorse-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap:14px; }
+.endorse-card { padding:16px 18px; border-radius:12px; background:var(--c-surface); border:1px solid var(--c-line); display:flex; flex-direction:column; gap:8px; text-decoration:none; color:inherit; transition:all .18s; }
+.endorse-card:hover { border-color:var(--c-gold); box-shadow:0 4px 16px rgba(0,0,0,.08); transform:translateY(-2px); }
+.ed-icon { width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:20px; flex:none; }
+.ed-icon.ed-normal { background:linear-gradient(135deg,#2196F3,#64B5F6); }
+.ed-icon.ed-lux { background:linear-gradient(135deg,#1a1a1a,#3d3d3d); }
+.ed-icon.ed-sport { background:linear-gradient(135deg,#F44336,#EF9A9A); }
+.ed-icon.ed-car { background:linear-gradient(135deg,#37474F,#90A4AE); }
+.ed-brand { font-weight:800; font-size:15px; color:var(--c-ink); }
+.ed-role { font-size:12px; color:var(--c-gold); }
+.ed-date { font-size:11px; color:var(--c-ink-mute); }
+.ed-link { font-size:12px; color:var(--c-info); font-weight:600; margin-top:auto; }
+
+/* ---------- 排名快览（首页紧凑版） ---------- */
+.rank-snapshot { display:flex; align-items:center; gap:16px; background:var(--c-bg-alt); border-radius:12px; padding:14px 20px; margin:16px 0; flex-wrap:wrap; }
+.rank-snapshot .rs-label { font-size:12px; font-weight:700; color:var(--c-ink-mute); text-transform:uppercase; }
+.rank-snapshot .rs-player { font-size:18px; font-weight:900; }
+.rank-snapshot .rs-pts { font-size:22px; font-weight:900; color:var(--c-red); }
+.rank-snapshot .rs-sep { width:1px; height:24px; background:var(--c-line); }
+.rank-snapshot .rs-updated { font-size:10px; color:var(--c-ink-mute); }
+
 /* ---------- 响应式 ---------- */
 @media (max-width: 980px) {
   .hero-grid { grid-template-columns: 1fr; }
   .hero-art { display:none; }
+  .hero-rank-row { grid-template-columns: 1fr; }
   .grid-3 { grid-template-columns: repeat(2,1fr); }
   .video-grid { grid-template-columns: repeat(2,1fr); }
   .fact-grid { grid-template-columns: repeat(2,1fr); }

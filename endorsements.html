@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>交手战绩 · 莎头球迷站</title>
-  <meta name="description" content="孙颖莎、王楚钦 vs 主要对手全方位交手纪录：包含输赢场次、胜率、经典战役。球迷自制非官方，数据源自公开报道。" />
+  <title>商务代言 · 莎头球迷站</title>
+  <meta name="description" content="孙颖莎、王楚钦商务代言合集：品牌、权益、官方购买渠道。球迷整理非官方。" />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-<body>
+<body data-endorse-player="both">
 
   <nav class="nav">
     <div class="wrap nav-inner">
@@ -22,9 +22,9 @@
         <a href="news.html">资讯</a>
         <a href="videos.html">视频</a>
         <a href="forum.html">论坛</a>
-        <a href="head-to-head.html" class="active">交手战绩</a>
+        <a href="head-to-head.html">交手战绩</a>
         <a href="tournament.html">赛事档案</a>
-        <a href="endorsements.html">商务代言</a>
+        <a href="endorsements.html" class="active">商务代言</a>
         <a href="about.html">关于</a>
       </div>
       <div class="nav-cta">
@@ -34,43 +34,36 @@
     </div>
   </nav>
 
-  <header class="h2h-hero">
+  <header class="profile-hero" style="background:linear-gradient(160deg,#1a1a2e,#16213e,#0f3460);">
     <div class="wrap">
-      <div class="h2h-title">交手<span class="gold">战绩</span>档案</div>
-      <div class="h2h-sub">数据源自公开报道与 ITTF/WTT 官方统计 · 持续更新</div>
+      <span class="hero-eyebrow">💎 商务代言 · 球迷整理</span>
+      <h1 style="font-family:var(--ff-display); font-size:clamp(30px,5vw,44px); font-weight:900; color:#fff;">品<span style="color:var(--c-gold-light)">牌合作</span></h1>
+      <p style="color:rgba(255,245,230,.84); margin-top:12px; max-width:600px;">整理自公开商业合作信息，点击跳转官方平台了解更多。非商业推广，仅供球迷参考。</p>
     </div>
   </header>
 
+  <!-- 语录条 -->
+  <div class="quote-strip" data-render="quotes"></div>
+
+  <!-- 孙颖莎代言 -->
   <section class="section">
     <div class="wrap">
-      <div class="h2h-tabs">
-        <div class="h2h-tab active" data-h2h="sun">孙颖莎</div>
-        <div class="h2h-tab" data-h2h="wang">王楚钦</div>
+      <div class="section-head">
+        <div><div class="section-title"><span class="accent">孙颖莎</span> · 商务代言</div><div class="section-line"></div></div>
+        <div class="section-sub">代言品牌覆盖美妆、餐饮、日化、3C、食品、奢侈等多个领域</div>
       </div>
-      <div class="wrap-narrow" style="margin:0 auto;">
-        <div data-render="h2h"></div>
-      </div>
+      <div class="endorse-grid" data-render="endorse" data-endorse-player="sun"></div>
     </div>
   </section>
 
-  <section class="section-tight" style="background:var(--c-bg-alt);">
-    <div class="wrap wrap-narrow">
-      <div style="background:var(--c-surface); border:1px solid var(--c-line); border-radius:14px; padding:20px 22px; font-size:14px; color:var(--c-ink-soft);">
-        <b style="color:var(--c-ink);">数据说明</b><br>
-        交手纪录综合 ITTF 国际乒联、WTT 世界乒联以及权威媒体报道统计。<br>
-        仅含国际赛事正式交锋（世锦赛/世界杯/奥运会/WTT系列/亚运会/亚锦赛/亚洲杯）。<br>
-        数据可能存在统计口径差异，具体以官方为准。最后更新：2026年7月。
+  <!-- 王楚钦代言 -->
+  <section class="section" style="background:var(--c-bg-alt);">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="section-title"><span class="accent">王楚钦</span> · 商务代言</div><div class="section-line"></div></div>
+        <div class="section-sub">奢侈品、美妆、汽车、运动等多个领域的品牌大使/代言人</div>
       </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; background: linear-gradient(160deg,#fff,#FFF7EC); border:1px solid var(--c-line); border-radius:16px; padding:28px 30px;">
-      <div>
-        <div style="font-family:var(--ff-display); font-size:22px; font-weight:800;">赛后复盘，来论坛聊聊</div>
-        <p class="muted" style="margin-top:6px;">每场大赛后，球迷自发复盘。你的分析、你的观点，这里都有人认真看。</p>
-      </div>
-      <a class="btn btn-primary" href="forum.html">进入论坛 →</a>
+      <div class="endorse-grid" data-render="endorse" data-endorse-player="wang"></div>
     </div>
   </section>
 
@@ -79,8 +72,8 @@
       <div class="footer-grid">
         <div><div class="footer-brand">莎头球迷站<span class="dot">·</span></div><p style="margin-top:12px; font-size:14px; color:#cdbfae; max-width:280px;">球迷自发组织的非官方站点，聚焦孙颖莎与王楚钦。尊重版权，所有内容指向官方正规来源。</p></div>
         <div><h4>选手</h4><ul><li><a href="sun-yingsha.html">孙颖莎</a></li><li><a href="wang-chuqin.html">王楚钦</a></li></ul></div>
-        <div><h4>内容</h4><ul><li><a href="news.html">资讯</a></li><li><a href="videos.html">视频</a></li><li><a href="forum.html">论坛</a></li></ul></div>
-        <div><h4>关于</h4><ul><li><a href="about.html">版权与声明</a></li><li><a href="head-to-head.html">交手战绩</a></li></ul></div>
+        <div><h4>内容</h4><ul><li><a href="news.html">资讯</a></li><li><a href="videos.html">视频</a></li><li><a href="forum.html">论坛</a></li><li><a href="endorsements.html">商务代言</a></li></ul></div>
+        <div><h4>关于</h4><ul><li><a href="about.html">版权与声明</a></li><li><a href="head-to-head.html">交手战绩</a></li><li><a href="tournament.html">赛事档案</a></li></ul></div>
       </div>
       <div class="footer-bottom">
         <div><span class="nonofficial">⚠ 非官方球迷自制站点</span> · 不代表任何运动员/官方机构立场</div>

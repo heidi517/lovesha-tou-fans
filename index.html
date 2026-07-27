@@ -30,6 +30,7 @@
         <a href="forum.html">论坛</a>
         <a href="head-to-head.html">交手战绩</a>
         <a href="tournament.html">赛事档案</a>
+        <a href="endorsements.html">商务代言</a>
         <a href="about.html">关于</a>
       </div>
       <div class="nav-cta">
@@ -46,18 +47,32 @@
     <div class="wrap hero-grid">
       <div>
         <span class="hero-eyebrow">🏓 球迷自制 · 非官方 · 指向正规来源</span>
-        <h1>为<span class="gold"> 孙颖莎 </span>与<span class="gold"> 王楚钦 </span>而聚<br>这里是我们看球的地方</h1>
-        <p class="lead">一个聚焦"莎头组合"与国乒的球迷之家：最新动态、比赛视频、国内外资讯、球迷讨论。所有内容指向官方正规来源，尊重版权、远离盗播。</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="sun-yingsha.html">认识孙颖莎 →</a>
-          <a class="btn btn-ghost" href="wang-chuqin.html">认识王楚钦</a>
-          <a class="btn btn-ghost" href="forum.html">进入论坛</a>
+        <h1>为<span class="gold"> 孙颖莎 </span>与<span class="gold"> 王楚钦 </span>而聚</h1>
+        <p class="lead">最新排名 · 赛事倒计时 · 各类数据一站掌握。所有内容指向官方正规来源。</p>
+
+        <!-- 双星排名快览 -->
+        <div class="hero-rank-row">
+          <div class="hero-rank-mini hr-sun">
+            <span class="hrm-mark">莎</span>
+            <div>
+              <div class="hrm-name">孙颖莎</div>
+              <div class="hrm-rank">世界第<span class="hrm-num">1</span> · 11,350分</div>
+              <div class="hrm-streak">连续217周霸榜 · 断层第一</div>
+            </div>
+          </div>
+          <div class="hero-rank-mini hr-wang">
+            <span class="hrm-mark">钦</span>
+            <div>
+              <div class="hrm-name">王楚钦</div>
+              <div class="hrm-rank">世界第<span class="hrm-num">1</span> · 9,177分</div>
+              <div class="hrm-streak">男队队长 · 断层领先</div>
+            </div>
+          </div>
         </div>
-        <div class="hero-stats">
-          <div class="hero-stat"><div class="num">2</div><div class="lbl">聚焦选手</div></div>
-          <div class="hero-stat"><div class="num">10+</div><div class="lbl">下半年赛事跟踪</div></div>
-          <div class="hero-stat"><div class="num">5</div><div class="lbl">对战档案</div></div>
-          <div class="hero-stat"><div class="num">24h</div><div class="lbl">资讯更新</div></div>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="sun-yingsha.html">孙颖莎 · 个人页 →</a>
+          <a class="btn btn-ghost" href="wang-chuqin.html">王楚钦 · 个人页</a>
         </div>
       </div>
       <div class="hero-art">
@@ -75,27 +90,26 @@
               <stop offset="0%" stop-color="#2C6FB8"/><stop offset="100%" stop-color="#0A1E3A"/>
             </linearGradient>
           </defs>
-          <!-- 球拍一 -->
           <g transform="rotate(-22 140 200)">
             <ellipse cx="140" cy="180" rx="78" ry="92" fill="url(#pad1)" opacity=".96"/>
             <ellipse cx="140" cy="180" rx="62" ry="74" fill="none" stroke="#fff" stroke-width="2.5" opacity=".35"/>
             <rect x="128" y="250" width="24" height="78" rx="12" fill="#5a3a1a"/>
           </g>
-          <!-- 球拍二 -->
           <g transform="rotate(24 260 200)">
             <ellipse cx="260" cy="180" rx="78" ry="92" fill="url(#pad2)" opacity=".96"/>
             <ellipse cx="260" cy="180" rx="62" ry="74" fill="none" stroke="#D4AF37" stroke-width="2.5" opacity=".45"/>
             <rect x="248" y="250" width="24" height="78" rx="12" fill="#2a1a0a"/>
           </g>
-          <!-- 球 -->
           <circle cx="200" cy="150" r="30" fill="url(#ballg)"/>
           <path d="M183 150q17 -22 34 0" stroke="#9a7a1a" stroke-width="2" fill="none" opacity=".5"/>
-          <!-- 光点 -->
           <circle cx="190" cy="140" r="6" fill="#fff" opacity=".8"/>
         </svg>
       </div>
     </div>
   </header>
+
+  <!-- 莎头语录飘条 -->
+  <div class="quote-strip" data-render="quotes"></div>
 
   <!-- 双星卡片 -->
   <section class="section">
