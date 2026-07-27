@@ -359,7 +359,164 @@
     if (y) y.textContent = new Date().getFullYear();
   }
 
-  /* ---------- 入口 ---------- */
+  /* ---------- 赛事档案馆渲染 ---------- */
+  function renderTournamentArchive() {
+    const box = $('[data-render="archive"]');
+    if (!box) return;
+    if (typeof TOURNAMENT_ARCHIVE === 'undefined') return;
+    const typeClass = (t) => {
+      const m = {'大满贯':'at-gs','世乒赛':'at-dark','奥运会':'at-red','亚运会':'at-red','世界杯':'at-green','全锦赛':'at-green','联赛':'at-wtt','洲际':'at-plum','年终':'at-dark'};
+      return m[t] || 'at-wtt';
+    };
+    const playerLabel = (p) => {
+      if (p === 'sun') return '<span class="ap-mark ap-sun">莎</span>孙颖莎';
+      if (p === 'wang') return '<span class="ap-mark ap-wang">钦</span>王楚钦';
+      return '<span class="ap-mark ap-both">莎钦</span>莎头组合';
+    };
+    const resultClass = (r) => {
+      if (r.includes('🥇') || r.includes('金牌') || r.includes('冠军')) return 'gold';
+      if (r.includes('🥈') || r.includes('银牌') || r.includes('亚军')) return 'silver';
+      if (r.includes('🥉') || r.includes('铜牌') || r.includes('季军')) return 'bronze';
+      return '';
+    };
+    box.innerHTML = TOURNAMENT_ARCHIVE.map(yr => {
+      const eventsHtml = yr.events.map(ev => {
+        const rows = ev.results.map(r => `
+          <tr>
+            <td>${ev.date}${ev.endDate ? ' –<br>' + ev.endDate : ''}</td>
+            <td><span class="archive-event-name">${esc(ev.name)}</span></td>
+            <td><span class="archive-event-type ${typeClass(ev.type)}">${esc(ev.type)}${ev.points ? ' · ' + ev.points + '分' : ''}</span></td>
+            <td><span class="archive-player">${playerLabel(r.player)}</span></td>
+            <td>${esc(r.event)}</td>
+            <td><span class="archive-result ${resultClass(r.result)}">${esc(r.result)}</span></td>
+            <td style="font-size:13px;">${esc(r.detail)}</td>
+            <td><a class="archive-src" href="${esc(ev.url)}" target="_blank" rel="noopener nofollow">${esc(ev.src)}</a></td>
+          </tr>`).join('');
+        return rows;
+      }).join('');
+      return `
+        <div class="archive-year">${yr.year} 赛季</div>
+        <div style="overflow-x:auto;">
+          <table class="archive-table">
+            <thead>
+              <tr>
+                <th>日期</th><th>赛事</th><th>级别</th><th>选手</th><th>项目</th><th>成绩</th><th>详情</th><th>来源</th>
+              </tr>
+            </thead>
+            <tbody>${eventsHtml}</tbody>
+          </table>
+        </div>`;
+    }).join('')
+    + `<div class="archive-disclaimer"><span>📋</span><div><b>数据说明：</b>本档案整理自公开赛事结果，以官方公布为准。部分早期赛事成绩标注"待补充"，欢迎通过论坛提供信息。标注"以官方为准"的项目请在 ITTF/WTT 官网核实。</div></div>`;
+  }
+
+  /* ---------- 心声墙 ---------- */
+  function initMessageWall() {
+    const wall = $('[data-msgwall="wall"]');
+    if (!wall) return;
+    const STORAGE_KEY = 'shatou_msgwall';
+    const MY_ID_KEY = 'shatou_myid';
+
+    // 获取或创建用户 ID
+    let myId = localStorage.getItem(MY_ID_KEY);
+    if (!myId) { myId = 'u_' + Date.now().toString(36) + Math.random().toString(36).slice(2,6); localStorage.setItem(MY_ID_KEY, myId); }
+
+    const load = () => {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch(e) { return []; }
+    };
+    const save = (msgs) => { localStorage.setItem(STORAGE_KEY, JSON.stringify(msgs)); };
+
+    const colorMap = {
+      'pink': 'mw-pink', 'blue': 'mw-blue', 'gold': 'mw-gold', 'green': 'mw-green', 'lavender': 'mw-lavender'
+    };
+
+    const render = () => {
+      const msgs = load();
+      if (!msgs.length) {
+        wall.innerHTML = '<div class="msgwall-empty">还没有人留言，来做第一个写下祝福的人吧 💌</div>';
+        return;
+      }
+      wall.innerHTML = msgs.slice().reverse().map((m, i) => {
+        const isMine = m.uid === myId;
+        const bgClass = colorMap[m.color] || 'mw-pink';
+        const dateStr = new Date(m.time).toLocaleString('zh-CN', { month:'numeric', day:'numeric', hour:'2-digit', minute:'2-digit' });
+        return `
+          <div class="msgwall-note ${bgClass}">
+            <div class="mn-author">
+              <span>${esc(m.name || '匿名球迷')}</span>
+              ${isMine ? `<button class="mn-del" data-msgwall-del="${m.id}" title="删除">×</button>` : ''}
+            </div>
+            <div class="mn-msg">${esc(m.msg)}</div>
+            <div class="mn-time">${dateStr}</div>
+          </div>`;
+      }).join('');
+    };
+
+    render();
+
+    // 删除事件
+    wall.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-msgwall-del]');
+      if (!btn) return;
+      const id = btn.dataset.msgwallDel;
+      let msgs = load();
+      msgs = msgs.filter(m => m.id !== id);
+      save(msgs);
+      render();
+    });
+
+    // 发帖按钮
+    const postBtn = $('[data-msgwall="post"]');
+    const nameInput = $('[data-msgwall="name"]');
+    const msgInput = $('[data-msgwall="msg"]');
+    if (!postBtn) return;
+
+    // 颜色选择
+    let selectedColor = 'pink';
+    $$('[data-msgwall-color]').forEach(c => {
+      c.addEventListener('click', () => {
+        $$('[data-msgwall-color]').forEach(x => x.classList.remove('selected'));
+        c.classList.add('selected');
+        selectedColor = c.dataset.msgwallColor;
+      });
+    });
+
+    postBtn.addEventListener('click', () => {
+      const name = (nameInput ? nameInput.value.trim() : '') || '匿名球迷';
+      const msg = msgInput ? msgInput.value.trim() : '';
+      if (!msg) { alert('写点什么吧～'); return; }
+      if (msg.length > 300) { alert('最多300字哦～'); return; }
+      const msgs = load();
+      msgs.push({
+        id: 'm_' + Date.now().toString(36) + Math.random().toString(36).slice(2,5),
+        uid: myId,
+        name,
+        msg,
+        color: selectedColor,
+        time: Date.now()
+      });
+      if (msgs.length > 200) msgs.shift(); // 最多保留200条
+      save(msgs);
+      if (msgInput) msgInput.value = '';
+      render();
+    });
+  }
+
+  /* ---------- 论坛页心声墙 tab 切换 ---------- */
+  function initForumTabs() {
+    const tabs = $$('[data-forum-tab]');
+    if (!tabs.length) return;
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const section = tab.dataset.forumTab;
+        $$('[data-forum-section]').forEach(s => s.style.display = 'none');
+        const target = $(`[data-forum-section="${section}"]`);
+        if (target) target.style.display = 'block';
+      });
+    });
+  }
   document.addEventListener('DOMContentLoaded', () => {
     initNav();
     renderUpdates();
@@ -375,6 +532,9 @@
     renderLiveBar();
     initEncyclopediaTabs();
     initH2HTabs();
+    initMessageWall();
+    initForumTabs();
+    renderTournamentArchive();
     // 选手页自动渲染生涯时间线
     const pagePlayer = document.body.dataset.player;
     if ($('[data-render="career"]') && pagePlayer) {

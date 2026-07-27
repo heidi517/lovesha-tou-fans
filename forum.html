@@ -23,6 +23,7 @@
         <a href="videos.html">视频</a>
         <a href="forum.html" class="active">论坛</a>
         <a href="head-to-head.html">交手战绩</a>
+        <a href="tournament.html">赛事档案</a>
         <a href="about.html">关于</a>
       </div>
       <div class="nav-cta">
@@ -42,6 +43,15 @@
 
   <section class="section">
     <div class="wrap">
+
+      <!-- 论坛 Tab 切换 -->
+      <div class="msgwall-tabs" style="justify-content:center; margin-bottom:28px;">
+        <div class="msgwall-tab active" data-forum-tab="discuss">💬 讨论区</div>
+        <div class="msgwall-tab" data-forum-tab="msgwall">💌 心声墙</div>
+      </div>
+
+      <!-- 讨论区 -->
+      <div data-forum-section="discuss">
       <div class="forum-grid">
         <aside class="forum-cats">
           <div class="cat" style="cursor:default"><span class="ico">💬</span> 全部讨论</div>
@@ -80,6 +90,31 @@
           </script>
         </div>
       </div>
+      </div>
+
+      <!-- 心声墙 -->
+      <div data-forum-section="msgwall" style="display:none;">
+        <div class="msgwall-composer">
+          <div class="mc-title">写下你想说的话</div>
+          <div class="mc-row">
+            <input type="text" data-msgwall="name" placeholder="你的昵称（选填）" maxlength="20" />
+          </div>
+          <textarea data-msgwall="msg" placeholder="写一句祝福、鼓励或者想对莎头说的话……最多300字" maxlength="300"></textarea>
+          <div class="mc-row" style="justify-content:space-between; align-items:center;">
+            <div class="msgwall-colors">
+              <span style="font-size:13px; color:var(--c-ink-mute); margin-right:6px;">便签颜色：</span>
+              <span class="msgwall-color selected" data-msgwall-color="pink" style="background:linear-gradient(135deg,#FFD6DC,#F4A0B0);" title="粉色"></span>
+              <span class="msgwall-color" data-msgwall-color="blue" style="background:linear-gradient(135deg,#D0E2FF,#86A8E7);" title="蓝色"></span>
+              <span class="msgwall-color" data-msgwall-color="gold" style="background:linear-gradient(135deg,#FBE9C0,#E8C560);" title="金色"></span>
+              <span class="msgwall-color" data-msgwall-color="green" style="background:linear-gradient(135deg,#C8E6D0,#7BC090);" title="绿色"></span>
+              <span class="msgwall-color" data-msgwall-color="lavender" style="background:linear-gradient(135deg,#E4D0FF,#B98FE0);" title="紫色"></span>
+            </div>
+            <button class="btn btn-primary btn-sm" data-msgwall="post">💌 贴上心声墙</button>
+          </div>
+        </div>
+        <div class="msgwall-grid" data-msgwall="wall"></div>
+      </div>
+
     </div>
   </section>
 

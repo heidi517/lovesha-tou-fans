@@ -159,6 +159,140 @@ const FEATURED = [
   { tag: '回顾', color: 't-green', title: '莎头组合·混双经典战役回顾', desc: '从东京到巴黎，那些年我们一起追过的"莎头"混双。', url: 'forum.html' },
 ];
 
+/* ---------- 赛事档案馆（结构化赛果） ---------- */
+const TOURNAMENT_ARCHIVE = [
+  {
+    year: '2026',
+    events: [
+      { date: '2026-07-23', name: '乒超联赛（常规赛）', loc: '大连 / 雄安', type: '联赛',
+        results: [
+          { player: 'sun', event: '女团', result: '进行中', detail: '代表深圳大学出战' },
+          { player: 'wang', event: '男团', result: '进行中', detail: '代表山东魏桥首战鲁能' },
+        ], src: '中国乒协', url: 'https://www.ctta.cn/' },
+      { date: '2026-07-14', endDate: '2026-07-20', name: '全国锦标赛·双打', loc: '长沙', type: '全锦赛',
+        results: [
+          { player: 'both', event: '混双', result: '四强', detail: '半决赛2-3袁励岑/王艺迪' },
+          { player: 'sun', event: '女双', result: '未参赛', detail: '专注混双单项' },
+          { player: 'wang', event: '男双', result: '未参赛', detail: '专注混双单项' },
+        ], src: '新华社 / 中国乒协', url: 'https://www.ctta.cn/xwzx/ppxw/2026/0720/702758.html' },
+      { date: '2026-07-06', name: 'WTT美国大满贯', loc: '美国·洛杉矶', type: '大满贯', points: 2000,
+        results: [
+          { player: 'sun', event: '女单', result: '🥇 冠军', detail: '决赛4-3胜蒯曼（第6座大满贯）' },
+          { player: 'wang', event: '男单', result: '第三轮', detail: '1-4不敌丹麦选手林德' },
+          { player: 'both', event: '混双', result: '🥈 亚军', detail: '决赛负于林诗栋/蒯曼' },
+        ], src: 'Olympics.com / WTT官网', url: 'https://www.olympics.com/zh/news/2026-us-smash-sun-yingsha-edges-kuaiman-seven-game-thriller-clinch-title-china-three-crowns' },
+      { date: '2026-06-10', endDate: '2026-06-16', name: '伦敦世乒赛（团体）', loc: '英国·伦敦', type: '世乒赛',
+        results: [
+          { player: 'sun', event: '女团', result: '🥇 冠军', detail: '中国队3-0日本队夺冠' },
+          { player: 'wang', event: '男团', result: '🥇 冠军', detail: '中国队3-1德国队夺冠，首次以队长身份出战' },
+        ], src: 'ITTF / 新华社', url: 'https://www.ittf.com/' },
+      { date: '2026-04-15', endDate: '2026-04-21', name: 'WTT澳门世界杯', loc: '中国·澳门', type: '世界杯', points: 2500,
+        results: [
+          { player: 'sun', event: '女单', result: '🥈 亚军', detail: '决赛不敌王曼昱' },
+          { player: 'wang', event: '男单', result: '🥇 冠军', detail: '决赛4-1胜林诗栋' },
+        ], src: 'WTT官网 / 央视体育', url: 'https://worldtabletennis.com/' },
+      { date: '2026-03-08', endDate: '2026-03-14', name: 'WTT新加坡大满贯', loc: '新加坡', type: '大满贯', points: 2000,
+        results: [
+          { player: 'sun', event: '女单', result: '🥇 冠军', detail: '决赛4-2胜王曼昱' },
+          { player: 'wang', event: '男单', result: '八强', detail: '不敌张本智和' },
+        ], src: 'WTT官网 / 央视体育', url: 'https://worldtabletennis.com/' },
+      { date: '2026-02-18', endDate: '2026-02-23', name: '亚洲杯', loc: '地点待确认', type: '洲际', points: 1000,
+        results: [
+          { player: 'sun', event: '女单', result: '🥇 冠军', detail: '决赛4-3胜王曼昱' },
+          { player: 'wang', event: '男单', result: '🥇 冠军', detail: '决赛4-2胜张本智和' },
+        ], src: '央视体育', url: 'https://sports.cctv.com/' },
+    ]
+  },
+  {
+    year: '2025',
+    events: [
+      { date: '2025-12', name: 'WTT总决赛', loc: '待确认', type: '年终', points: 2000,
+        results: [
+          { player: 'sun', event: '女单', result: '待补充', detail: '成绩以官方为准' },
+          { player: 'wang', event: '男单', result: '待补充', detail: '成绩以官方为准' },
+        ], src: 'WTT官网', url: 'https://worldtabletennis.com/' },
+      { date: '2025-11', name: '混团世界杯', loc: '中国·成都', type: '世界杯', points: 2500,
+        results: [
+          { player: 'both', event: '混团', result: '待补充', detail: '中国队成绩以官方为准' },
+        ], src: 'ITTF', url: 'https://www.ittf.com/' },
+      { date: '2025-10', name: 'WTT中国大满贯', loc: '中国·北京', type: '大满贯', points: 2000,
+        results: [
+          { player: 'sun', event: '女单', result: '🥈 亚军', detail: '决赛2-4负王曼昱' },
+          { player: 'wang', event: '男单', result: '待补充', detail: '成绩以官方为准' },
+        ], src: 'WTT官网', url: 'https://worldtabletennis.com/' },
+      { date: '2025-08', name: 'WTT瑞典大满贯', loc: '瑞典·马尔默', type: '大满贯', points: 2000,
+        results: [
+          { player: 'sun', event: '女单', result: '🥇 冠军', detail: '决赛3-0胜早田希娜' },
+        ], src: 'WTT官网 / 央视体育', url: 'https://worldtabletennis.com/' },
+      { date: '2025-08', name: 'WTT美国大满贯', loc: '美国', type: '大满贯', points: 2000,
+        results: [
+          { player: 'wang', event: '男单', result: '🥈 亚军', detail: '决赛0-4负樊振东' },
+        ], src: 'WTT官网', url: 'https://worldtabletennis.com/' },
+      { date: '2025-05', name: '多哈世乒赛（单项）', loc: '卡塔尔·多哈', type: '世乒赛',
+        results: [
+          { player: 'sun', event: '女单', result: '🥇 冠军', detail: '蝉联世乒赛女单冠军' },
+          { player: 'wang', event: '男单', result: '🥇 冠军', detail: '首夺世乒赛男单冠军' },
+        ], src: 'ITTF / 新华社', url: 'https://www.ittf.com/' },
+    ]
+  },
+  {
+    year: '2024',
+    events: [
+      { date: '2024-07-26', endDate: '2024-08-11', name: '巴黎奥运会', loc: '法国·巴黎', type: '奥运会',
+        results: [
+          { player: 'sun', event: '混双', result: '🥇 金牌', detail: '搭档王楚钦，中国首枚奥运混双金牌' },
+          { player: 'sun', event: '女单', result: '🥈 银牌', detail: '决赛2-4负陈梦' },
+          { player: 'sun', event: '女团', result: '🥇 金牌', detail: '中国队3-0日本队' },
+          { player: 'wang', event: '混双', result: '🥇 金牌', detail: '搭档孙颖莎夺冠' },
+          { player: 'wang', event: '男团', result: '🥇 金牌', detail: '中国队3-0瑞典队' },
+        ], src: '央视体育 / Olympics.com', url: 'https://olympics.com/' },
+      { date: '2024-04', name: 'WTT澳门世界杯', loc: '中国·澳门', type: '世界杯', points: 2500,
+        results: [
+          { player: 'sun', event: '女单', result: '🥇 冠军', detail: '决赛4-3胜王曼昱' },
+        ], src: 'WTT官网', url: 'https://worldtabletennis.com/' },
+    ]
+  },
+  {
+    year: '2023',
+    events: [
+      { date: '2023-09-23', endDate: '2023-10-08', name: '杭州亚运会', loc: '中国·杭州', type: '亚运会',
+        results: [
+          { player: 'sun', event: '女单', result: '🥇 金牌', detail: '决赛4-1胜早田希娜' },
+          { player: 'sun', event: '女团', result: '🥇 金牌', detail: '中国队夺冠' },
+          { player: 'wang', event: '男单', result: '🥇 金牌', detail: '决赛4-3胜樊振东' },
+          { player: 'wang', event: '男团', result: '🥇 金牌', detail: '中国队夺冠' },
+          { player: 'both', event: '混双', result: '🥇 金牌', detail: '莎头组合夺冠' },
+        ], src: '新华社 / 央视体育', url: 'https://sports.cctv.com/' },
+      { date: '2023-05', name: '德班世乒赛（单项）', loc: '南非·德班', type: '世乒赛',
+        results: [
+          { player: 'sun', event: '女单', result: '🥇 冠军', detail: '决赛4-2胜陈梦' },
+          { player: 'wang', event: '男双', result: '🥇 冠军', detail: '搭档樊振东' },
+          { player: 'wang', event: '混双', result: '🥇 冠军', detail: '搭档孙颖莎' },
+        ], src: 'ITTF / 新华社', url: 'https://www.ittf.com/' },
+      { date: '2023-03', name: 'WTT新加坡大满贯', loc: '新加坡', type: '大满贯', points: 2000,
+        results: [
+          { player: 'sun', event: '女单', result: '🥇 冠军', detail: '三冠王（女单+女双+混双）' },
+        ], src: 'WTT官网', url: 'https://worldtabletennis.com/' },
+    ]
+  },
+  {
+    year: '2021',
+    events: [
+      { date: '2021-07-23', endDate: '2021-08-08', name: '东京奥运会', loc: '日本·东京', type: '奥运会',
+        results: [
+          { player: 'sun', event: '女单', result: '🥈 银牌', detail: '决赛2-4负陈梦' },
+          { player: 'sun', event: '女团', result: '🥇 金牌', detail: '中国队夺冠' },
+        ], src: '央视体育 / Olympics.com', url: 'https://olympics.com/' },
+      { date: '2021-11', name: '休斯敦世乒赛', loc: '美国·休斯敦', type: '世乒赛',
+        results: [
+          { player: 'sun', event: '女双', result: '🥇 冠军', detail: '搭档王曼昱' },
+          { player: 'sun', event: '混双', result: '🥇 冠军', detail: '搭档王楚钦' },
+          { player: 'wang', event: '混双', result: '🥇 冠军', detail: '搭档孙颖莎' },
+        ], src: 'ITTF', url: 'https://www.ittf.com/' },
+    ]
+  },
+];
+
 /* ---------- 论坛分区与示例帖 ---------- */
 const FORUM_CATS = [
   { id: 'all', name: '全部', ico: '☰', count: 8 },
