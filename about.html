@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>关于 · 版权声明 · 更新思路 · 莎头球迷站</title>
+  <meta name="description" content="关于本站：版权声明、非官方声明、更新思路建议、论坛后端接入指南、官方来源清单。" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html">
+        <svg class="logo" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19" fill="#C8102E"/><circle cx="20" cy="20" r="19" stroke="#D4AF37" stroke-width="2"/><path d="M11 27c4-9 14-9 18 0" stroke="#fff" stroke-width="2.4" stroke-linecap="round" fill="none"/><circle cx="20" cy="14" r="4.2" fill="#D4AF37"/></svg>
+        莎头球迷站<span class="dot">·</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">首页</a>
+        <a href="sun-yingsha.html">孙颖莎</a>
+        <a href="wang-chuqin.html">王楚钦</a>
+        <a href="news.html">资讯</a>
+        <a href="videos.html">视频</a>
+        <a href="forum.html">论坛</a>
+        <a href="about.html" class="active">关于</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-gold btn-sm" href="forum.html">加入球迷</a>
+        <button class="nav-toggle" aria-label="菜单" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="profile-hero" style="padding:54px 0 40px;">
+    <div class="wrap">
+      <span class="hero-eyebrow">ℹ️ 关于本站</span>
+      <h1 style="font-family:var(--ff-display); font-size:clamp(30px,5vw,44px); font-weight:900; color:#fff;">关于 · <span style="color:var(--c-gold-light)">声明</span></h1>
+      <p style="color:rgba(255,245,230,.84); margin-top:12px; max-width:600px;">本站为球迷自发组织的非官方站点。尊重版权、远离盗版、友善交流——这是我们的底线。</p>
+    </div>
+  </section>
+
+  <!-- 版权声明 -->
+  <section class="section">
+    <div class="wrap wrap-narrow">
+      <div class="disclaimer">
+        <h3>🛡️ 版权与合规声明</h3>
+        <div style="margin-top:14px; color:var(--c-ink-soft); font-size:14.5px; line-height:1.85;">
+          <p><b>1. 非官方：</b>本站由球迷自发搭建，不代表孙颖莎、王楚钦本人，也不代表中国乒协、国际乒联或任何官方机构的立场，与上述主体无任何关联。</p>
+          <p style="margin-top:10px;"><b>2. 原创设计：</b>本站界面、图标、配色均为原创设计，不使用任何受版权保护的运动员照片、官方 Logo、赛事转播画面截图。选手头像采用原创文字图形替代。</p>
+          <p style="margin-top:10px;"><b>3. 内容来源：</b>资讯与视频一律指向<b>官方正规渠道</b>（央视体育、咪咕视频、WTT/ITTF 官网、中国乒协、新华社等），仅提供链接跳转，不在本站托管或转载受版权保护的内容全文与影像。</p>
+          <p style="margin-top:10px;"><b>4. 事实性引用：</b>选手资料中的姓名、籍贯、打法、主要荣誉等为公开事实信息，用于球迷了解。具体届次、成绩、排名请以官方公布为准。</p>
+          <p style="margin-top:10px;"><b>5. 示例占位：</b>动态、资讯、视频、论坛帖子等条目当前多为<b>示例占位内容</b>，上线前需替换为真实信息并注明来源、日期。</p>
+          <p style="margin-top:10px;"><b>6. 用户内容：</b>论坛内容（接入后端后）由用户发布，本站不为其内容承担版权责任，发现侵权将及时处理。</p>
+          <p style="margin-top:14px; color:var(--c-red-deep)"><b>⚠ 若有任何内容涉嫌侵权，请联系站长删除。</b></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 更新思路 -->
+  <section class="section-tight" id="ideas" style="background: var(--c-bg-alt);">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="section-title">更新<span class="accent">思路</span></div><div class="section-line"></div></div>
+        <div class="section-sub">阿B 给你提的 10 个可以持续迭代的方向</div>
+      </div>
+      <div class="idea-list">
+        <div class="idea"><div class="h"><span class="n">1</span>赛事日历与倒计时</div><p>维护一张赛事日历表，每场赛事自动倒数，开赛提醒，赛后挂上官方回放链接。</p><span class="tag-pill">高优先</span></div>
+        <div class="idea"><div class="h"><span class="n">2</span>选手数据卡片</div><p>对接 ITTF/ITTF 排名数据，做胜率、对战胜负、世界排名趋势的小图表（涨红跌绿）。</p><span class="tag-pill">高优先</span></div>
+        <div class="idea"><div class="h"><span class="n">3</span>赛果速报条</div><p>首页加一条滚动的赛果速报，刚比完就更新（来源官方），比刷新闻快。</p><span class="tag-pill">中优先</span></div>
+        <div class="idea"><div class="h"><span class="n">4</span>经典战役回顾集</div><p>整理两人的经典比赛，配上官方集锦链接与球迷写的回顾，做成"战役博物馆"。</p><span class="tag-pill">中优先</span></div>
+        <div class="idea"><div class="h"><span class="n">5</span>球迷应援墙</div><p>球迷可以贴一句应援语上墙（接入后端后），做成滚动弹幕墙，赛事期间氛围拉满。</p><span class="tag-pill">中优先</span></div>
+        <div class="idea"><div class="h"><span class="n">6</span>技术分析专栏</div><p>邀请懂球的球迷写技术贴：发球、正手抢冲、反手相持……图文拆解，沉淀高质量内容。</p><span class="tag-pill">低优先</span></div>
+        <div class="idea"><div class="h"><span class="n">7</span>赛事竞猜/投票</div><p>赛前开一个轻量投票（不涉赌），猜比分/胜负，赛后出结果，增加参与感。</p><span class="tag-pill">低优先</span></div>
+        <div class="idea"><div class="h"><span class="n">8</span>生日倒计时与纪念</div><p>孙颖莎 11.04、王楚钦 05.11，自动生日倒计时，当天开应援楼。</p><span class="tag-pill">低优先</span></div>
+        <div class="idea"><div class="h"><span class="n">9</span>资讯 RSS 聚合</div><p>用官方 RSS/官方账号做资讯聚合，自动抓取更新，省去人工搬运。</p><span class="tag-pill">中优先</span></div>
+        <div class="idea"><div class="h"><span class="n">10</span>周边/观赛指南</div><p>只指向官方或正规渠道的周边购买、现场观赛指引，不代购不抽成，纯指南。</p><span class="tag-pill">低优先</span></div>
+      </div>
+      <div class="notice-box" style="margin-top:24px;"><span>💡</span><div><b>阿B 的小建议：</b>先做"高优先"的赛事日历+数据卡片，这两个最能体现球迷站的实用价值；论坛接入 Giscus 后再开应援墙和竞猜，氛围感最强。</div></div>
+    </div>
+  </section>
+
+  <!-- 论坛接入指南 -->
+  <section class="section" id="forum">
+    <div class="wrap wrap-narrow">
+      <div class="section-head">
+        <div><div class="section-title">论坛<span class="accent">接入</span></div><div class="section-line"></div></div>
+      </div>
+      <p style="font-size:16px; color:var(--c-ink-soft);">静态站本身没有数据库，所以论坛要真正能发帖，二选一：</p>
+      <div class="idea-list" style="margin-top:18px;">
+        <div class="idea">
+          <div class="h"><span class="n">A</span>方案一：Giscus（推荐 · 免费）</div>
+          <p>基于 GitHub Discussions，零成本托管，适合球迷站。步骤：</p>
+          <p style="margin-top:8px;">1. 把站点代码传到 GitHub 公开仓库；<br>2. 装 Giscus App 到该仓库，开启 Discussions；<br>3. 去 <code>giscus.app/zh</code> 生成配置，把生成的 <code>&lt;script&gt;</code> 贴进 <code>forum.html</code>；<br>4. 在 <code>data.js</code> 的 <code>FORUM_BACKEND</code> 填 <code>repo/repoID</code> 并设 <code>enabled:true</code>。</p>
+        </div>
+        <div class="idea">
+          <div class="h"><span class="n">B</span>方案二：自建后端</div>
+          <p>想要完全可控（发帖/审核/数据归属）就自建。任意语言写个 REST API，<code>main.js</code> 里 <code>FORUM_BACKEND.apiBase</code> 指向你的服务即可，<code>initPostModal</code> 已写好 <code>fetch</code> 调用点。</p>
+          <p style="margin-top:8px;"><b>提醒：</b>自建需自担服务器成本与内容合规审核责任。</p>
+        </div>
+      </div>
+      <div class="notice-box" style="margin-top:20px;"><span>📍</span><div>代码里所有接入点都用 <code>// ── 后端接入点 ──</code> 注释标好了，搜一下就能找到。</div></div>
+    </div>
+  </section>
+
+  <!-- 官方来源 -->
+  <section class="section-tight" style="background: var(--c-bg-alt);" id="sources">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="section-title">官方<span class="accent">来源</span></div><div class="section-line"></div></div>
+        <div class="section-sub">资讯/视频采集请认准这些正规渠道</div>
+      </div>
+      <div class="source-list" data-render="sources"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div><div class="footer-brand">莎头球迷站<span class="dot">·</span></div><p style="margin-top:12px; font-size:14px; color:#cdbfae; max-width:280px;">球迷自发组织的非官方站点，聚焦孙颖莎与王楚钦。尊重版权，所有内容指向官方正规来源。</p></div>
+        <div><h4>选手</h4><ul><li><a href="sun-yingsha.html">孙颖莎</a></li><li><a href="wang-chuqin.html">王楚钦</a></li></ul></div>
+        <div><h4>内容</h4><ul><li><a href="news.html">资讯</a></li><li><a href="videos.html">视频</a></li><li><a href="forum.html">论坛</a></li></ul></div>
+        <div><h4>关于</h4><ul><li><a href="about.html">版权与声明</a></li><li><a href="about.html#ideas">更新思路</a></li><li><a href="about.html#forum">论坛接入</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <div><span class="nonofficial">⚠ 非官方球迷自制站点</span> · 不代表任何运动员/官方机构立场</div>
+        <div>© <span data-year>2026</span> 莎头球迷站 · 仅供球迷交流</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

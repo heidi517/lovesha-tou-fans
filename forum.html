@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>球迷论坛 · 莎头球迷站</title>
+  <meta name="description" content="球迷讨论论坛：赛事讨论、选手应援、技术交流、闲聊水区。当前为静态演示态，已留好 Giscus/自建后端接入点。" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html">
+        <svg class="logo" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19" fill="#C8102E"/><circle cx="20" cy="20" r="19" stroke="#D4AF37" stroke-width="2"/><path d="M11 27c4-9 14-9 18 0" stroke="#fff" stroke-width="2.4" stroke-linecap="round" fill="none"/><circle cx="20" cy="14" r="4.2" fill="#D4AF37"/></svg>
+        莎头球迷站<span class="dot">·</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">首页</a>
+        <a href="sun-yingsha.html">孙颖莎</a>
+        <a href="wang-chuqin.html">王楚钦</a>
+        <a href="news.html">资讯</a>
+        <a href="videos.html">视频</a>
+        <a href="forum.html" class="active">论坛</a>
+        <a href="about.html">关于</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-gold btn-sm" href="#postModal" onclick="document.querySelector('[data-fab=post]').click();return false;">发帖</a>
+        <button class="nav-toggle" aria-label="菜单" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="profile-hero" style="padding:54px 0 40px;">
+    <div class="wrap">
+      <span class="hero-eyebrow">💬 球迷论坛 · 一起看球</span>
+      <h1 style="font-family:var(--ff-display); font-size:clamp(30px,5vw,44px); font-weight:900; color:#fff;">球迷<span style="color:var(--c-gold-light)">论坛</span></h1>
+      <p style="color:rgba(255,245,230,.84); margin-top:12px; max-width:560px;">赛事讨论、选手应援、技术交流、闲聊水区。找到和你一样喜欢他们的球迷。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="notice-box" style="margin-bottom:24px;">
+        <span>🧪</span>
+        <div><b>当前为演示态：</b>帖子为示例占位内容，暂不真实保存。接入 <b>Giscus（基于 GitHub Discussions，免费）</b>或自建后端后即可真实发帖/回复——接入点已在代码中留好，详见 <a href="about.html#forum">关于页 · 论坛接入</a>。</div>
+      </div>
+
+      <div class="forum-grid">
+        <aside class="forum-cats">
+          <div class="cat active" data-cat="all"><span class="ico">☰</span> 全部 <span class="cnt">8</span></div>
+          <div class="cat" data-cat="match"><span class="ico">🏆</span> 赛事讨论 <span class="cnt">3</span></div>
+          <div class="cat" data-cat="cheer"><span class="ico">⭐</span> 选手应援 <span class="cnt">2</span></div>
+          <div class="cat" data-cat="tech"><span class="ico">🏓</span> 技术交流 <span class="cnt">2</span></div>
+          <div class="cat" data-cat="water"><span class="ico">💬</span> 闲聊水区 <span class="cnt">1</span></div>
+          <div style="margin-top:18px; padding:14px; background:var(--c-bg-alt); border-radius:12px; font-size:13px; color:var(--c-ink-soft);">
+            <b style="color:var(--c-ink)">论坛公约</b><br>
+            · 友善讨论，不人身攻击<br>
+            · 不传未经证实的信息<br>
+            · 不搬运受版权保护内容<br>
+            · 尊重运动员隐私
+          </div>
+        </aside>
+
+        <div>
+          <div class="thread-list" data-render="threads"></div>
+          <div id="forumEmpty" class="center muted" style="display:none; padding:40px 0;">该分区暂无帖子</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 发帖浮按钮 -->
+  <button class="fab" data-fab="post">✏️ 发帖</button>
+
+  <!-- 发帖弹窗 -->
+  <div class="modal-mask" id="postModal">
+    <div class="modal">
+      <button class="modal-close" aria-label="关闭">×</button>
+      <h3>发个新帖</h3>
+      <p>选好分区，聊聊你想说的。当前为演示态，帖子暂不保存。</p>
+      <form>
+        <div class="field">
+          <label>分区</label>
+          <select id="postCat">
+            <option value="match">赛事讨论</option>
+            <option value="cheer">选手应援</option>
+            <option value="tech">技术交流</option>
+            <option value="water">闲聊水区</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>标题</label>
+          <input id="postTitle" type="text" placeholder="一句话概括你的帖子" />
+        </div>
+        <div class="field">
+          <label>内容</label>
+          <textarea id="postBody" placeholder="详细说说……（请勿搬运受版权保护内容）"></textarea>
+        </div>
+        <div class="notice-box"><span>🛡️</span><div><b>提醒：</b>请勿发布侵权内容、不实信息或人身攻击。</div></div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('postModal').classList.remove('show')">取消</button>
+          <button type="submit" class="btn btn-primary btn-sm">发布</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div><div class="footer-brand">莎头球迷站<span class="dot">·</span></div><p style="margin-top:12px; font-size:14px; color:#cdbfae; max-width:280px;">球迷自发组织的非官方站点，聚焦孙颖莎与王楚钦。尊重版权，所有内容指向官方正规来源。</p></div>
+        <div><h4>选手</h4><ul><li><a href="sun-yingsha.html">孙颖莎</a></li><li><a href="wang-chuqin.html">王楚钦</a></li></ul></div>
+        <div><h4>内容</h4><ul><li><a href="news.html">资讯</a></li><li><a href="videos.html">视频</a></li><li><a href="forum.html">论坛</a></li></ul></div>
+        <div><h4>关于</h4><ul><li><a href="about.html">版权与声明</a></li><li><a href="about.html#ideas">更新思路</a></li><li><a href="about.html#forum">论坛接入</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <div><span class="nonofficial">⚠ 非官方球迷自制站点</span> · 不代表任何运动员/官方机构立场</div>
+        <div>© <span data-year>2026</span> 莎头球迷站 · 仅供球迷交流</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

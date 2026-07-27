@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>资讯 · 莎头球迷站</title>
+  <meta name="description" content="国内外乒乓球资讯汇总：国内赛事、国际赛事、WTT/世乒赛/世界杯、乒超、排名等。指向官方正规来源。" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html">
+        <svg class="logo" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19" fill="#C8102E"/><circle cx="20" cy="20" r="19" stroke="#D4AF37" stroke-width="2"/><path d="M11 27c4-9 14-9 18 0" stroke="#fff" stroke-width="2.4" stroke-linecap="round" fill="none"/><circle cx="20" cy="14" r="4.2" fill="#D4AF37"/></svg>
+        莎头球迷站<span class="dot">·</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">首页</a>
+        <a href="sun-yingsha.html">孙颖莎</a>
+        <a href="wang-chuqin.html">王楚钦</a>
+        <a href="news.html" class="active">资讯</a>
+        <a href="videos.html">视频</a>
+        <a href="forum.html">论坛</a>
+        <a href="about.html">关于</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-gold btn-sm" href="forum.html">加入球迷</a>
+        <button class="nav-toggle" aria-label="菜单" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="profile-hero" style="padding:54px 0 40px;">
+    <div class="wrap">
+      <span class="hero-eyebrow">📰 国内外乒乓资讯</span>
+      <h1 style="font-family:var(--ff-display); font-size:clamp(30px,5vw,44px); font-weight:900; color:#fff;">资讯<span style="color:var(--c-gold-light)">大厅</span></h1>
+      <p style="color:rgba(255,245,230,.84); margin-top:12px; max-width:560px;">国内赛事、国际赛事、WTT/世乒赛/世界杯、乒超、世界排名——一网打尽。所有条目指向官方正规来源。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="filters">
+        <button class="filter-chip active" data-filter="all">全部</button>
+        <button class="filter-chip" data-filter="domestic">国内</button>
+        <button class="filter-chip" data-filter="international">国际</button>
+      </div>
+      <div class="feed" data-render="news"></div>
+      <div id="newsEmpty" class="center muted" style="display:none; padding:40px 0;">该分类暂无内容</div>
+
+      <div class="notice-box" style="margin-top:24px;">
+        <span>ℹ️</span>
+        <div><b>关于内容来源：</b>当前为示例占位内容。上线时请从上方"官方来源"采集真实资讯，注明出处与日期，避免搬运受版权保护的全文/图片。</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight" style="background: var(--c-bg-alt);">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="section-title">官方<span class="accent">来源</span></div><div class="section-line"></div></div>
+        <div class="section-sub">资讯采集请认准这些正规渠道</div>
+      </div>
+      <div class="source-list" data-render="sources"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div><div class="footer-brand">莎头球迷站<span class="dot">·</span></div><p style="margin-top:12px; font-size:14px; color:#cdbfae; max-width:280px;">球迷自发组织的非官方站点，聚焦孙颖莎与王楚钦。尊重版权，所有内容指向官方正规来源。</p></div>
+        <div><h4>选手</h4><ul><li><a href="sun-yingsha.html">孙颖莎</a></li><li><a href="wang-chuqin.html">王楚钦</a></li></ul></div>
+        <div><h4>内容</h4><ul><li><a href="news.html">资讯</a></li><li><a href="videos.html">视频</a></li><li><a href="forum.html">论坛</a></li></ul></div>
+        <div><h4>关于</h4><ul><li><a href="about.html">版权与声明</a></li><li><a href="about.html#ideas">更新思路</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <div><span class="nonofficial">⚠ 非官方球迷自制站点</span> · 不代表任何运动员/官方机构立场</div>
+        <div>© <span data-year>2026</span> 莎头球迷站 · 仅供球迷交流</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
