@@ -744,6 +744,43 @@ ul,ol { list-style: none; }
 .rank-num.r2 { background:#A8A8A8; }
 .rank-num.r3 { background:#CD7F32; }
 
+/* ---------- 选手个人排名卡片 ---------- */
+.prc-card { background:var(--c-surface); border:1px solid var(--c-line); border-radius:16px; overflow:hidden; }
+.prc-top { display:grid; grid-template-columns: repeat(4,1fr); gap:16px; padding:24px; background: linear-gradient(160deg,#FFFBF5,#FFF5E8); border-bottom:1px solid var(--c-line); }
+.prc-badge { text-align:center; }
+.prc-rank-num { font-family:var(--ff-display); font-size:52px; font-weight:900; color:var(--c-gold); line-height:1; }
+.prc-rank-label { font-size:13px; color:var(--c-ink-mute); margin-top:4px; }
+.prc-points-wrap { text-align:center; align-self:center; }
+.prc-points { font-family:var(--ff-display); font-size:36px; font-weight:900; color:var(--c-red); }
+.prc-points-label { font-size:13px; color:var(--c-ink-mute); margin-top:2px; }
+.prc-lead { text-align:center; align-self:center; }
+.prc-lead-val { font-family:var(--ff-display); font-size:28px; font-weight:800; color:var(--c-ink); }
+.prc-lead-label { font-size:12.5px; color:var(--c-ink-soft); margin-top:2px; line-height:1.4; }
+.prc-streak { text-align:center; align-self:center; }
+.prc-streak-val { font-family:var(--ff-display); font-size:28px; font-weight:800; color:var(--c-red); }
+.prc-streak-label { font-size:12.5px; color:var(--c-ink-soft); margin-top:2px; line-height:1.4; }
+.prc-body { padding:20px 24px; border-bottom:1px solid var(--c-line); }
+.prc-body:last-of-type { border-bottom:none; }
+.prc-section-title { font-size:15px; font-weight:700; margin-bottom:14px; color:var(--c-ink); }
+.prc-bars { display:flex; flex-direction:column; gap:10px; }
+.prc-bar-row { display:grid; grid-template-columns: 200px 1fr 180px; align-items:center; gap:12px; }
+.prc-bar-label { font-size:13px; font-weight:600; color:var(--c-ink-soft); text-align:right; }
+.prc-bar-wrap { display:flex; align-items:center; gap:8px; }
+.prc-bar-fill { height:22px; border-radius:4px; min-width:2px; transition:width .6s ease; }
+.prc-bar-val { font-size:12.5px; font-weight:700; color:var(--c-ink); white-space:nowrap; }
+.prc-bar-note { font-size:11.5px; color:var(--c-ink-mute); }
+.prc-chart-container { position:relative; }
+.prc-chart { width:100%; height:120px; background:var(--c-bg-alt); border-radius:8px; padding:6px 2px; }
+.prc-chart-labels { display:flex; justify-content:space-between; margin-top:6px; padding:0 2px; }
+.prc-chart-label { font-size:10.5px; color:var(--c-ink-mute); text-align:center; line-height:1.3; }
+.prc-footer { padding:12px 24px; background:var(--c-bg-alt); display:flex; justify-content:space-between; font-size:12px; color:var(--c-ink-mute); }
+@media (max-width: 768px) {
+  .prc-top { grid-template-columns: repeat(2,1fr); padding:18px; }
+  .prc-bar-row { grid-template-columns: 1fr; gap:2px; }
+  .prc-bar-label { text-align:left; }
+  .prc-bar-note { display:none; }
+}
+
 /* ---------- 语录飘条 ---------- */
 .quote-strip { background:linear-gradient(160deg, var(--c-red-dark), var(--c-red)); color:#fff; padding:14px 0; text-align:center; font-size:15px; font-weight:600; letter-spacing:.5px; overflow:hidden; position:relative; }
 .quote-strip .q-track { display:flex; gap:60px; animation:quoteScroll 35s linear infinite; white-space:nowrap; }

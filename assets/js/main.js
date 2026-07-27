@@ -500,7 +500,90 @@
       </div>`;
   }
 
-  /* ---------- 世界排名快照 ---------- */
+  /* ---------- 选手个人排名积分卡 ---------- */
+  function renderPlayerRanking() {
+    const box = $('[data-render="player-ranking"]');
+    if (!box) return;
+    const playerKey = document.body.dataset.player;
+    if (!playerKey || typeof RANKING_DETAIL === 'undefined' || !RANKING_DETAIL[playerKey]) return;
+    const d = RANKING_DETAIL[playerKey];
+    const playerName = playerKey === 'sun' ? '孙颖莎' : '王楚钦';
+    const playerColor = playerKey === 'sun' ? '#C8102E' : '#1B3A6B';
+
+    // 积分柱状图数据
+    const maxPts = Math.max(...d.breakdown.map(b => b.pts));
+    const barsHtml = d.breakdown.map(b => {
+      const pct = Math.round(b.pts / maxPts * 100);
+      return `<div class="prc-bar-row">
+        <div class="prc-bar-label">${esc(b.source)}</div>
+        <div class="prc-bar-wrap"><div class="prc-bar-fill" style="width:${pct}%;background:${playerColor};"></div><span class="prc-bar-val">${b.pts}分</span></div>
+        <div class="prc-bar-note">${esc(b.note)}</div>
+      </div>`;
+    }).join('');
+
+    // 历史走势 mini chart
+    const maxHistPts = Math.max(...d.history.map(h => h.pts));
+    const histPoints = d.history.map((h, i) => {
+      const x = Math.round(i / (d.history.length - 1) * 100);
+      const y = 80 - Math.round(h.pts / maxHistPts * 80);
+      return `${x},${y}`;
+    }).join(' ');
+    const histLine = d.history.map((h, i) => {
+      const x = Math.round(i / (d.history.length - 1) * 100);
+      const y = 80 - Math.round(h.pts / maxHistPts * 80);
+      return `${x},${y}`;
+    }).join(' ');
+
+    box.innerHTML = `
+      <div class="prc-card">
+        <div class="prc-top">
+          <div class="prc-badge">
+            <div class="prc-rank-num">#${d.rank}</div>
+            <div class="prc-rank-label">世界排名</div>
+          </div>
+          <div class="prc-points-wrap">
+            <div class="prc-points">${d.points.toLocaleString()}</div>
+            <div class="prc-points-label">总积分</div>
+          </div>
+          <div class="prc-lead">
+            <div class="prc-lead-val">+${d.lead.toLocaleString()}</div>
+            <div class="prc-lead-label">领先第2名 ${esc(d.leadOver)}</div>
+          </div>
+          <div class="prc-streak">
+            <div class="prc-streak-val">${d.weeksAtNo1}周</div>
+            <div class="prc-streak-label">${esc(d.streak)}</div>
+          </div>
+        </div>
+
+        <div class="prc-body">
+          <div class="prc-section-title">🏓 积分构成</div>
+          <div class="prc-bars">${barsHtml}</div>
+        </div>
+
+        <div class="prc-body">
+          <div class="prc-section-title">📈 历史走势</div>
+          <div class="prc-chart-container">
+            <svg class="prc-chart" viewBox="0 0 100 80" preserveAspectRatio="none">
+              <polyline points="${histLine}" fill="none" stroke="${playerColor}" stroke-width="0.8" vector-effect="non-scaling-stroke"/>
+              ${d.history.map((h, i) => {
+                const x = Math.round(i / (d.history.length - 1) * 100);
+                const y = 80 - Math.round(h.pts / maxHistPts * 80);
+                return `<circle cx="${x}" cy="${y}" r="1.2" fill="${playerColor}"/>`;
+              }).join('')}
+            </svg>
+            <div class="prc-chart-labels">
+              ${d.history.map(h => `<span class="prc-chart-label">${esc(h.week)}<br>${h.pts.toLocaleString()}</span>`).join('')}
+            </div>
+          </div>
+        </div>
+
+        <div class="prc-footer">
+          <span>数据来源：ITTF / WTT 世界排名</span>
+          <span>${esc(WORLD_RANKINGS.updated)}</span>
+        </div>
+      </div>`;
+  }
+  /* ---------- 世界排名快照（全局） ---------- */
   function renderRankingCard() {
     const box = $('[data-render="ranking"]');
     if (!box) return;
@@ -700,6 +783,7 @@
     renderFacts();
     renderQuotes();
     renderRankingCard();
+    renderPlayerRanking();
     renderEndorsements();
     initVideoFilter();
     // 选手页自动渲染生涯时间线
