@@ -141,83 +141,6 @@
       </a>`).join('');
   }
 
-  /* ---------- 论坛渲染 + 筛选 ---------- */
-  function renderForum() {
-    const box = $('[data-render="threads"]');
-    if (!box) return;
-    const paint = (list) => {
-      box.innerHTML = list.map((t) => {
-        const flag = t.sample ? '<span class="sample-flag">示例</span>' : '';
-        const pin = t.pin ? '<span class="thread-pin">📌 置顶</span> ' : '';
-        const initials = esc(t.author).slice(0, 1);
-        return `
-          <div class="thread">
-            <div class="thread-ava ${t.color}">${initials}</div>
-            <div class="thread-main">
-              <div class="tt">${pin}${flag}${esc(t.title)}</div>
-              <div class="ex">${esc(t.excerpt)}</div>
-              <div class="meta"><span>@${esc(t.author)}</span><span>${esc(t.time)}</span><span>${esc(t.views)} 浏览</span></div>
-            </div>
-            <div class="thread-side"><div class="replies">${t.replies}</div>回复</div>
-          </div>`;
-      }).join('');
-      const empty = $('#forumEmpty');
-      if (empty) empty.style.display = list.length ? 'none' : 'block';
-    };
-    paint(FORUM_THREADS);
-    $$('.forum-cats .cat').forEach((c) => {
-      c.addEventListener('click', () => {
-        $$('.forum-cats .cat').forEach((x) => x.classList.remove('active'));
-        c.classList.add('active');
-        const f = c.dataset.cat;
-        paint(f === 'all' ? FORUM_THREADS : FORUM_THREADS.filter((t) => t.cat === f));
-      });
-    });
-  }
-
-  /* ---------- 论坛发帖弹窗（演示态 + 后端接入点） ---------- */
-  function initPostModal() {
-    const fab = $('[data-fab="post"]');
-    const mask = $('#postModal');
-    if (!fab || !mask) return;
-    const close = $('.modal-close', mask);
-    const open = () => mask.classList.add('show');
-    const hide = () => mask.classList.remove('show');
-    fab.addEventListener('click', open);
-    close && close.addEventListener('click', hide);
-    mask.addEventListener('click', (e) => { if (e.target === mask) hide(); });
-
-    const form = $('form', mask);
-    form && form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      /* ── 后端接入点 ─────────────────────────────
-         当前为静态站，无持久化能力。接入方式：
-         A) Giscus（推荐·零成本）：在 about.html 按引导把
-            <script src="https://giscus.app/client.js" ...> 放进论坛页，
-            并在 data.js 的 FORUM_BACKEND 填好 repo / repoID 等。
-         B) 自定义后端：把下面 fetch 的 URL 改成你的 API，
-            apiBase 见 data.js → FORUM_BACKEND.apiBase。
-      ─────────────────────────────────────────── */
-      const title = $('#postTitle', form).value.trim();
-      const cat = $('#postCat', form).value;
-      const body = $('#postBody', form).value.trim();
-      if (!title || !body) { alert('标题和内容都要填哦～'); return; }
-      if (typeof FORUM_BACKEND !== 'undefined' && FORUM_BACKEND.enabled && FORUM_BACKEND.apiBase) {
-        fetch(FORUM_BACKEND.apiBase + '/threads', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ title, cat, body }),
-        }).then(() => { hide(); form.reset(); alert('发帖成功！'); location.reload(); })
-          .catch(() => alert('网络出错了，稍后再试。'));
-      } else {
-        // 演示态：仅提示
-        hide();
-        form.reset();
-        alert('【演示模式】当前为静态站，帖子暂不保存。\n接入 Giscus 或自建后端后即可真实发帖（见 about 页说明）。');
-      }
-    });
-  }
-
   /* ---------- 赛事倒计时（如有容器则用示例日期） ---------- */
   function initCountdown() {
     const box = $('[data-countdown]');
@@ -767,8 +690,6 @@
     renderNews();
     renderVideoTimeline();
     renderSources();
-    renderForum();
-    initPostModal();
     initCountdown();
     initYear();
     renderCalendar();

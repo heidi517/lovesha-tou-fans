@@ -3,10 +3,9 @@
    ─────────────────────────────────────────────────────────────────
    说明：
    1. 球员资料部分为【公开事实】（姓名/籍贯/打法/主要荣誉），可放心引用。
-   2. 「动态 / 资讯 / 视频 / 论坛帖子」均为【示例占位内容】，标有 sample 字段，
-      上线前请用你实际收集的真实信息替换。示例内容不指向具体真实事件。
-   3. 视频统一指向【官方正规来源】（央视体育/咪咕/WTT官网/ITTF等），不收录盗版。
-   4. 接入真实论坛后端时，把 FORUM_BACKEND 配好即可（见底部）。
+   2. 动态与资讯均指向央视体育、WTT/ITTF 官网、中国乒协、新华社等正规来源，
+      仅提供链接跳转，不托管或转载受保护内容。
+   3. 视频条目已链接官网具体比赛页面，论坛通过 Giscus 接入 GitHub Discussions。
 =================================================================== */
 
 /* ---------- 双星公开资料 ---------- */
@@ -516,26 +515,6 @@ const TOURNAMENT_ARCHIVE = [
   },
 ];
 
-/* ---------- 论坛分区与示例帖 ---------- */
-const FORUM_CATS = [
-  { id: 'all', name: '全部', ico: '☰', count: 8 },
-  { id: 'match', name: '赛事讨论', ico: '🏆', count: 3 },
-  { id: 'cheer', name: '选手应援', ico: '⭐', count: 2 },
-  { id: 'tech', name: '技术交流', ico: '🏓', count: 2 },
-  { id: 'water', name: '闲聊水区', ico: '💬', count: 1 },
-];
-
-const FORUM_THREADS = [
-  { cat: 'match', pin: true, title: '【示例·置顶】赛事观赛指南与转播渠道汇总', excerpt: '占位内容：汇总官方转播渠道（央视/咪咕/WTT官网），避免误入盗播。上线前替换真实内容。', author: '吧主', color: 't-red', replies: 128, views: '2.1k', time: '示例时间', sample: true },
-  { cat: 'cheer', title: '【示例】孙颖莎应援楼', excerpt: '占位内容：球迷应援与讨论区。上线前替换真实内容。', author: '球迷A', color: 't-gold', replies: 86, views: '1.3k', time: '示例时间', sample: true },
-  { cat: 'cheer', title: '【示例】王楚钦应援楼', excerpt: '占位内容：球迷应援与讨论区。上线前替换真实内容。', author: '球迷B', color: 't-blue', replies: 72, views: '1.1k', time: '示例时间', sample: true },
-  { cat: 'tech', title: '【示例】正手爆冲技术讨论', excerpt: '占位内容：技术交流帖。上线前替换真实内容。', author: '球友C', color: 't-green', replies: 54, views: '780', time: '示例时间', sample: true },
-  { cat: 'tech', title: '【示例】左手横板打法解析', excerpt: '占位内容：技术交流帖。上线前替换真实内容。', author: '球友D', color: 't-dark', replies: 43, views: '640', time: '示例时间', sample: true },
-  { cat: 'match', title: '【示例】混双"莎头组合"观赛帖', excerpt: '占位内容：混双观赛讨论。上线前替换真实内容。', author: '球迷E', color: 't-plum', replies: 39, views: '520', time: '示例时间', sample: true },
-  { cat: 'water', title: '【示例】日常水区·今天练球了吗', excerpt: '占位内容：闲聊水区。上线前替换真实内容。', author: '球友F', color: 't-red', replies: 24, views: '310', time: '示例时间', sample: true },
-  { cat: 'match', title: '【示例】近期赛事结果速报', excerpt: '占位内容：赛果速报。上线前替换真实内容。', author: '吧主', color: 't-gold', replies: 18, views: '280', time: '示例时间', sample: true },
-];
-
 /* ---------- 官方正规来源清单 ---------- */
 const SOURCES = [
   { name: '央视体育 CCTV5', desc: '官方转播 · 赛事直播/集锦', host: 'sports.cctv.com', url: 'https://sports.cctv.com/', color: 't-red', abbr: '央' },
@@ -545,19 +524,3 @@ const SOURCES = [
   { name: '咪咕视频', desc: '乒乓赛事正版直播平台', host: 'miguvideo.com', url: 'https://www.miguvideo.com/', color: 't-dark', abbr: '咪' },
   { name: '新华社体育', desc: '权威赛事报道', host: 'xinhuanet.com', url: 'https://www.xinhuanet.com/sports/', color: 't-plum', abbr: '华' },
 ];
-
-/* ===================================================================
-   论坛后端接入配置（静态站当前为演示态）
-   推荐方案：接入 Giscus（基于 GitHub Discussions，免费、零成本托管）
-   步骤见 about.html / 代码注释
-=================================================================== */
-const FORUM_BACKEND = {
-  enabled: false,                 // 接入后改为 true
-  type: 'giscus',                 // 'giscus' | 'custom-api'
-  repo: '',                       // '你的用户名/仓库名'
-  repoId: '',
-  category: 'Announcements',
-  categoryId: '',
-  // 若用自定义后端：
-  apiBase: '',                    // 例如 https://your-api.com
-};
